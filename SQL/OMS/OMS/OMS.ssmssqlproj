@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="OMS">
+  <Items>
+    <LogicalFolder Name="连接" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="122.227.207.204:sa">
+          <Created>2012-02-07T20:02:23.1141305+08:00</Created>
+          <Type>SQL</Type>
+          <Server>122.227.207.204</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="查询" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="修改表字段.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:122.227.207.204:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>122.227.207.204</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>修改表字段.sql</FullPath>
+        </FileNode>
+        <FileNode Name="数据查询.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:122.227.207.204:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>122.227.207.204</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>数据查询.sql</FullPath>
+        </FileNode>
+        <FileNode Name="产品数据初始化.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:122.227.207.204:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>122.227.207.204</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>产品数据初始化.sql</FullPath>
+        </FileNode>
+        <FileNode Name="删除表数据.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:122.227.207.204:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>122.227.207.204</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>删除表数据.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="杂项" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

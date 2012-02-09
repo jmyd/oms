@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "OMS", "OMS\OMS.ssmssqlproj", "{546E8982-EF86-40C4-891B-05A7D4B07D96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		默认值|Default = 默认值|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{546E8982-EF86-40C4-891B-05A7D4B07D96}.默认值|Default.ActiveCfg = 默认值
+		{00000000-0000-0000-0000-000000000000}.默认值|Default.ActiveCfg = 默认值
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

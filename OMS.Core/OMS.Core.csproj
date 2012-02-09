@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{57C61154-BE3A-4D41-9D4E-25A2436160C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OMS.Core</RootNamespace>
+    <AssemblyName>OMS.Core</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DoMain\BuyerAddressType.cs" />
+    <Compile Include="DoMain\BuyerType.cs" />
+    <Compile Include="DoMain\CompanyType.cs" />
+    <Compile Include="DoMain\CountryType.cs" />
+    <Compile Include="DoMain\CurrencyType.cs" />
+    <Compile Include="DoMain\DisputeApproachType.cs" />
+    <Compile Include="DoMain\DisputeCategoryType.cs" />
+    <Compile Include="DoMain\DisputeType.cs" />
+    <Compile Include="DoMain\EbayItemType.cs" />
+    <Compile Include="DoMain\EmailFieldType.cs" />
+    <Compile Include="DoMain\EmailTemplateType.cs" />
+    <Compile Include="DoMain\FeedbackType.cs" />
+    <Compile Include="DoMain\GoodsCategoryType.cs" />
+    <Compile Include="DoMain\GoodsCoefficientType.cs" />
+    <Compile Include="DoMain\GoodsModifyRecordType.cs" />
+    <Compile Include="DoMain\GoodsType.cs" />
+    <Compile Include="DoMain\OrderGoodsType.cs" />
+    <Compile Include="DoMain\OrderModifyRecordsType.cs" />
+    <Compile Include="DoMain\OrderPrintRecordType.cs" />
+    <Compile Include="DoMain\OrderType.cs" />
+    <Compile Include="DoMain\PackageGoodsType.cs" />
+    <Compile Include="DoMain\PackageType.cs" />
+    <Compile Include="DoMain\PaypalAccountType.cs" />
+    <Compile Include="DoMain\PrintTemplateType.cs" />
+    <Compile Include="DoMain\SaleAccountType.cs" />
+    <Compile Include="DoMain\SerialNumberType.cs" />
+    <Compile Include="DoMain\StockInType.cs" />
+    <Compile Include="DoMain\StockOutType.cs" />
+    <Compile Include="DoMain\TransportAreaCountryType.cs" />
+    <Compile Include="DoMain\TransportAreaType.cs" />
+    <Compile Include="DoMain\TransportConditionType.cs" />
+    <Compile Include="DoMain\TransportFreightType.cs" />
+    <Compile Include="DoMain\TransportModeType.cs" />
+    <Compile Include="DoMain\UserType.cs" />
+    <Compile Include="DoMain\WarehouseType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wojilu\wojilu.csproj">
+      <Project>{5912B6E1-6099-4392-9A67-AFD3A8AA4343}</Project>
+      <Name>wojilu</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
