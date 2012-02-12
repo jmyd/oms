@@ -63,10 +63,8 @@
                     </tr>
                     <tr>
                         <td style="padding-top: 0px; padding-left: 6px; padding-right: 6px; padding-bottom: 8px;">
-                            <table width="100%" cellpadding="2" cellspacing="0" class="dataTable" sortstring=""
-                                id="Table1" page="true" size="0" multiselect="true" autofill="true" scroll="false"
-                                lazy="false" cachesize="0">
-                                <tr ztype="head" class="dataTableHead">
+                            <table width="100%" cellpadding="2" cellspacing="0" class="dataTable" id="Table1">
+                                <tr class="dataTableHead">
                                     <td width="3%" height="30" ztype="RowNo">
                                         &nbsp;
                                     </td>
@@ -77,13 +75,13 @@
                                         <b>订单编号</b>
                                     </td>
                                     <td width="6%">
-                                        <strong>同步时间</strong>
-                                    </td>
-                                    <td width="6%">
                                         <strong>付款时间</strong>
                                     </td>
                                     <td width="6%">
-                                        <strong>发货时间</strong>
+                                        <strong>付款状态</strong>
+                                    </td>
+                                    <td width="6%">
+                                        <strong>发货状态</strong>
                                     </td>
                                     <td width="5%">
                                         <strong>货币</strong>
@@ -91,11 +89,11 @@
                                     <td width="7%">
                                         <strong>订单费用</strong>
                                     </td>
-                                    <td width="3%">
-                                        <strong>pp</strong>
+                                    <td width="8%">
+                                        买家
                                     </td>
                                     <td width="6%">
-                                        <strong>订单状态</strong>
+                                        <strong>打印次数</strong>
                                     </td>
                                     <td width="8%">
                                         <strong>挂号</strong>
@@ -118,16 +116,16 @@
                                             </td>
                                             <td>
                                                 <a href='Order.Aspx?oid=<%#Eval("Id") %>' target="_blank">
-                                                    <%#Eval("TxnId")%></a>
+                                                    <%#Eval("OrderNo")%></a>
                                             </td>
                                             <td>
                                                 <%#Eval("CreateOn", "{0:d}")%>
                                             </td>
                                             <td>
-                                                <%#Eval("PayOrderTime", "{0:d}")%>
+                                                <%#Eval("PayStatus")%>
                                             </td>
                                             <td>
-                                                <%#Eval("OrderStatus").ToString()=="2"?"":Eval("SendOrderTIme", "{0:d}")%>
+                                                <%#Eval("ShippedStatus")%>
                                             </td>
                                             <td>
                                                 <%#Eval("OrderCurrencyCode")%>
@@ -136,10 +134,10 @@
                                                 <%#Eval("OrderAmount")%>
                                             </td>
                                             <td>
-                                                <%#Eval("AddressId").ToString()=="1"?"√":"×"%>
+                                                <%#Eval("BuyerCode")%>
                                             </td>
                                             <td>
-                                                <%#Eval("OrderStatus").ToString()=="2"?"待发货":"已发货"%>
+                                                <%#Eval("PrintNum")%>
                                             </td>
                                             <td>
                                                 <%#Eval("TransportMode")%>

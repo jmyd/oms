@@ -9,15 +9,13 @@
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddCompany() {
-            $.dialog({ content: 'url:Company.aspx',
-               
+            $.dialog({ content: 'url:Company.aspx'
             });
         }
-     
 
-         function CheckDB(code) {
-            $.dialog({ content: 'url:CheckDB.aspx?code='+code,
-             
+
+        function CheckDB(code) {
+            $.dialog({ content: 'url:CheckDB.aspx?code=' + code
             });
         }
     </script>

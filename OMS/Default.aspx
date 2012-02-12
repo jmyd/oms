@@ -95,7 +95,7 @@
 
                                     var arr;
                                     arr = [];
-                                    arr.push([129, "订单列表", "/framework/Module/OrderManage/OrderList.aspx", "Icons/icon003a11.gif"]);
+                                    arr.push([129, "订单列表", "/Modules/Order/OrderList.aspx", "Icons/icon003a11.gif"]);
                                     arr.push([303, "订单扫描", "/framework/Module/OrderManage/OrderScanning.aspx", "Icons/icon018a4.gif"]);
                                     arr.push([341, "库存信息", "/framework/Module/GoodsManage/GoodsList.aspx", "Icons/icon402a1.gif"]);
                                     arr.push([397, "销售账户设置", "/framework/Module/Misc/AccountList.aspx", "Icons/icon050a18.gif"]);

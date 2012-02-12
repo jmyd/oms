@@ -1414,9 +1414,15 @@
     <Content Include="Modules\Order\AddOrderByAPI.aspx" />
     <Content Include="Modules\Order\AddOrderByImport.aspx" />
     <Content Include="Modules\Order\ImportAmount.aspx" />
+    <Content Include="Modules\Order\Order.aspx" />
     <Content Include="Modules\Order\OrderList.aspx" />
+    <Content Include="Modules\Order\OrderPrintRecord.aspx" />
+    <Content Include="Modules\Order\OrderScanning.aspx" />
+    <Content Include="Modules\Order\OrderShow.aspx" />
     <Content Include="Modules\Stock\Goods.aspx" />
+    <Content Include="Modules\Stock\GoodsCategory.aspx" />
     <Content Include="Modules\Stock\GoodsList.aspx" />
+    <Content Include="Modules\Stock\GoodsSaleRelation.aspx" />
     <Content Include="Modules\User\CheckDB.aspx" />
     <Content Include="Modules\User\Company.aspx" />
     <Content Include="Modules\User\CompanyList.aspx" />
@@ -1819,12 +1825,40 @@
     <Compile Include="Modules\Order\ImportAmount.aspx.designer.cs">
       <DependentUpon>ImportAmount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Order\Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Order\Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Order\OrderList.aspx.cs">
       <DependentUpon>OrderList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\Order\OrderList.aspx.designer.cs">
       <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Order\OrderPrintRecord.aspx.cs">
+      <DependentUpon>OrderPrintRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Order\OrderPrintRecord.aspx.designer.cs">
+      <DependentUpon>OrderPrintRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Order\OrderScanning.aspx.cs">
+      <DependentUpon>OrderScanning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Order\OrderScanning.aspx.designer.cs">
+      <DependentUpon>OrderScanning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Order\OrderShow.aspx.cs">
+      <DependentUpon>OrderShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Order\OrderShow.aspx.designer.cs">
+      <DependentUpon>OrderShow.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Stock\Goods.aspx.cs">
       <DependentUpon>Goods.aspx</DependentUpon>
@@ -1833,12 +1867,26 @@
     <Compile Include="Modules\Stock\Goods.aspx.designer.cs">
       <DependentUpon>Goods.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Stock\GoodsCategory.aspx.cs">
+      <DependentUpon>GoodsCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Stock\GoodsCategory.aspx.designer.cs">
+      <DependentUpon>GoodsCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Stock\GoodsList.aspx.cs">
       <DependentUpon>GoodsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\Stock\GoodsList.aspx.designer.cs">
       <DependentUpon>GoodsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Stock\GoodsSaleRelation.aspx.cs">
+      <DependentUpon>GoodsSaleRelation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Stock\GoodsSaleRelation.aspx.designer.cs">
+      <DependentUpon>GoodsSaleRelation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\User\CheckDB.aspx.cs">
       <DependentUpon>CheckDB.aspx</DependentUpon>
@@ -2547,6 +2595,8 @@
     <None Include="Imgs\img\nav_btnbg.psd" />
     <Content Include="Scripts\kindeditor\asp.net\file_manager_json.ashx" />
     <Content Include="Scripts\kindeditor\asp.net\upload_json.ashx" />
+    <Content Include="lang\zh-cn\core.config" />
+    <Content Include="lang\zh-cn\__core.config" />
     <None Include="Scripts\lhgdialog\_doc\commercial_license.doc" />
     <None Include="Scripts\My97DatePicker\.svn\all-wcprops" />
     <None Include="Scripts\My97DatePicker\.svn\entries" />
