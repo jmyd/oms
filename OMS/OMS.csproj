@@ -1411,6 +1411,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Modules\Misc\Dispute.aspx" />
     <Content Include="Modules\Misc\DisputeList.aspx" />
+    <Content Include="Modules\Misc\PringTempAdd.aspx" />
+    <Content Include="Modules\Misc\PrintTempList.aspx" />
     <Content Include="Modules\Order\AddOrderByAPI.aspx" />
     <Content Include="Modules\Order\AddOrderByImport.aspx" />
     <Content Include="Modules\Order\ImportAmount.aspx" />
@@ -1419,6 +1421,27 @@
     <Content Include="Modules\Order\OrderPrintRecord.aspx" />
     <Content Include="Modules\Order\OrderScanning.aspx" />
     <Content Include="Modules\Order\OrderShow.aspx" />
+    <Content Include="Modules\Print\Data\xmlParcel.aspx" />
+    <Content Include="Modules\Print\PrintReport\DesignReport.aspx" />
+    <Content Include="Modules\Print\PrintReport\DesignReportSave.aspx" />
+    <Content Include="Modules\Print\PrintReport\DisplayReport.aspx" />
+    <Content Include="Modules\Print\PrintReport\griectl.cab" />
+    <Content Include="Modules\Print\PrintReport\images\Data.gif" />
+    <Content Include="Modules\Print\PrintReport\images\Data.png" />
+    <Content Include="Modules\Print\PrintReport\images\Design.gif" />
+    <Content Include="Modules\Print\PrintReport\images\Design.png" />
+    <Content Include="Modules\Print\PrintReport\images\Display.gif" />
+    <Content Include="Modules\Print\PrintReport\images\Display.ico" />
+    <Content Include="Modules\Print\PrintReport\images\Display.png" />
+    <Content Include="Modules\Print\PrintReport\images\drawImg.png" />
+    <Content Include="Modules\Print\PrintReport\images\drawImg.tif" />
+    <Content Include="Modules\Print\PrintReport\images\drawImg2.png" />
+    <Content Include="Modules\Print\PrintReport\images\file_man_ce.ico" />
+    <Content Include="Modules\Print\PrintReport\images\tab_tool_mac.ico" />
+    <Content Include="Modules\Print\PrintReport\images\报关单.JPG" />
+    <Content Include="Modules\Print\PrintReport\images\报关单_1.jpg" />
+    <Content Include="Modules\Print\PrintReport\PrintReport.aspx" />
+    <Content Include="Modules\Print\PrintReport\ReadReport.aspx" />
     <Content Include="Modules\Stock\Goods.aspx" />
     <Content Include="Modules\Stock\GoodsCategory.aspx" />
     <Content Include="Modules\Stock\GoodsList.aspx" />
@@ -1644,9 +1667,88 @@
     <Content Include="Scripts\kindeditor\themes\default\default.css" />
     <Content Include="Scripts\kindeditor\themes\default\default.png" />
     <Content Include="Scripts\kindeditor\themes\simple\simple.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\favicon.ico" />
+    <Content Include="Scripts\kindeditor\lhgdialog\index.html" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\kindeditor\lhgdialog\lhgcore.lhgdialog.min.js" />
+    <Content Include="Scripts\kindeditor\lhgdialog\lhgdialog.js" />
+    <Content Include="Scripts\kindeditor\lhgdialog\lhgdialog.min.js" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\blue_s.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\blue_s2.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\blue_titbtn.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_b.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_l.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_lb.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_lt.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_lt2.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_r.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_rb.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_rt.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_rt2.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_t.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\blue\ie6\ui_t2.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\chrome.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\chrome\chrome_s.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\chrome\chrome_s2.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\chrome\chrome_s3.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\default.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\discuz.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\32X32\fail.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\32X32\hits.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\32X32\i.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\32X32\succ.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\alert.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\confirm.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\discuz_bg.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\error.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\face-sad.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\face-smile.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\gb_tip_layer.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\gb_tip_layer_ie6.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\lhgcore.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\loading.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\prompt.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\success.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\icons\tips.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\idialog_s.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\idialog_s2.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_b.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_close.hover.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_close.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_l.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_lb.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_lt.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_r.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_rb.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_rt.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\idialog\ie6\ui_t.png" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\jtop.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\mac.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\skins\qq2011.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\content\content.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\content\first.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\content\login.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\content\second.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\content\value.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\content\value1.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\demo.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_demo\demo.js" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\api.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\common.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\images\android.jpg" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\images\boxtitle.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\images\dotline.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\images\hd_logo.gif" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\license.txt" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\prettify\prettify.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\prettify\prettify.js" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\update.html" />
+    <Content Include="Scripts\kindeditor\lhgdialog\_doc\皮肤共用.css" />
+    <Content Include="Scripts\kindeditor\lhgdialog\文件目录结构说明.txt" />
     <Content Include="Scripts\lhgdialog\favicon.ico" />
     <Content Include="Scripts\lhgdialog\index.html" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\lhgdialog\lhgcore.lhgdialog.min.js" />
     <Content Include="Scripts\lhgdialog\lhgdialog.js" />
     <Content Include="Scripts\lhgdialog\lhgdialog.min.js" />
@@ -1804,6 +1906,20 @@
     <Compile Include="Modules\Misc\DisputeList.aspx.designer.cs">
       <DependentUpon>DisputeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Misc\PringTempAdd.aspx.cs">
+      <DependentUpon>PringTempAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\PringTempAdd.aspx.designer.cs">
+      <DependentUpon>PringTempAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\PrintTempList.aspx.cs">
+      <DependentUpon>PrintTempList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\PrintTempList.aspx.designer.cs">
+      <DependentUpon>PrintTempList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Order\AddOrderByAPI.aspx.cs">
       <DependentUpon>AddOrderByAPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1859,6 +1975,13 @@
     </Compile>
     <Compile Include="Modules\Order\OrderShow.aspx.designer.cs">
       <DependentUpon>OrderShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Print\Data\xmlParcel.aspx.cs">
+      <DependentUpon>xmlParcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Print\Data\xmlParcel.aspx.designer.cs">
+      <DependentUpon>xmlParcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Stock\Goods.aspx.cs">
       <DependentUpon>Goods.aspx</DependentUpon>
@@ -1924,6 +2047,7 @@
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1932,7 +2056,6 @@
     <Folder Include="Imgs\img\.svn\tmp\prop-base\" />
     <Folder Include="Imgs\img\.svn\tmp\props\" />
     <Folder Include="Imgs\img\.svn\tmp\text-base\" />
-    <Folder Include="Modules\Print\" />
     <Folder Include="Scripts\My97DatePicker\.svn\prop-base\" />
     <Folder Include="Scripts\My97DatePicker\.svn\props\" />
     <Folder Include="Scripts\My97DatePicker\.svn\tmp\prop-base\" />
@@ -2597,6 +2720,12 @@
     <Content Include="Scripts\kindeditor\asp.net\upload_json.ashx" />
     <Content Include="lang\zh-cn\core.config" />
     <Content Include="lang\zh-cn\__core.config" />
+    <None Include="Modules\Print\PrintReport\grf\Declarations.grf" />
+    <None Include="Modules\Print\PrintReport\grf\paypalAddress.grf" />
+    <None Include="Modules\Print\PrintReport\grf\PeiHuo.grf" />
+    <None Include="Modules\Print\PrintReport\grf\pgd.grf" />
+    <None Include="Modules\Print\PrintReport\grf\rt.grf" />
+    <None Include="Scripts\kindeditor\lhgdialog\_doc\commercial_license.doc" />
     <None Include="Scripts\lhgdialog\_doc\commercial_license.doc" />
     <None Include="Scripts\My97DatePicker\.svn\all-wcprops" />
     <None Include="Scripts\My97DatePicker\.svn\entries" />

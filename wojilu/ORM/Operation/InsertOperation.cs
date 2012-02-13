@@ -22,87 +22,100 @@ using wojilu.Data;
 using wojilu.Log;
 using wojilu.ORM.Caching;
 
-namespace wojilu.ORM.Operation {
+namespace wojilu.ORM.Operation
+{
 
-    internal class InsertOperation {
+    internal class InsertOperation
+    {
 
-        private static readonly ILog logger = LogManager.GetLogger( typeof( InsertOperation ) );
+        private static readonly ILog logger = LogManager.GetLogger(typeof(InsertOperation));
 
-        public static Result Insert( IEntity obj ) {
+        public static Result Insert(IEntity obj)
+        {
             if (obj == null) throw new ArgumentNullException();
-            Result result = Insert( obj, Entity.GetInfo( obj ), true );
+            Result result = Insert(obj, Entity.GetInfo(obj), true);
             return result;
         }
 
-        private static Result Insert( IEntity obj, EntityInfo entityInfo, Boolean isInsertParent ) {
-            Result result = Validator.Validate( obj, "insert" );
+        private static Result Insert(IEntity obj, EntityInfo entityInfo, Boolean isInsertParent)
+        {
+            Result result = Validator.Validate(obj, "insert");
             if (result.HasErrors) return result;
 
-            if (isInsertParent && entityInfo.Parent != null) {
-                IEntity objP = Entity.New( entityInfo.Type.BaseType.FullName );
-                List<EntityPropertyInfo> eplist = Entity.GetInfo( objP ).SavedPropertyList;
-                foreach (EntityPropertyInfo info in eplist) {
+            if (isInsertParent && entityInfo.Parent != null)
+            {
+                IEntity objP = Entity.New(entityInfo.Type.BaseType.FullName);
+                List<EntityPropertyInfo> eplist = Entity.GetInfo(objP).SavedPropertyList;
+                foreach (EntityPropertyInfo info in eplist)
+                {
                     if (info.IsList) continue;
-                    objP.set( info.Name, obj.get( info.Name ) );
+                    objP.set(info.Name, obj.get(info.Name));
                 }
-                ObjectDB.Insert( objP );
+                ObjectDB.Insert(objP);
 
                 obj.Id = objP.Id;
             }
 
             List<IInterceptor> ilist = MappingClass.Instance.InterceptorList;
-            for (int i = 0; i < ilist.Count; i++) {
-                ilist[i].BeforInsert( obj );
+            for (int i = 0; i < ilist.Count; i++)
+            {
+                ilist[i].BeforInsert(obj);
             }
 
-            IDbCommand cmd = DataFactory.GetCommand( getInsertSql( entityInfo ), DbContext.getConnection( entityInfo ) );
-            OrmHelper.SetParameters( cmd, "insert", obj, entityInfo );
-            obj.Id = executeCmd( cmd, entityInfo );// CommandUtil.ExecuteCmd( cmd, entityInfo );
+            IDbCommand cmd = DataFactory.GetCommand(getInsertSql(entityInfo), DbContext.getConnection(entityInfo));
+            OrmHelper.SetParameters(cmd, "insert", obj, entityInfo);
+            obj.Id = executeCmd(cmd, entityInfo);// CommandUtil.ExecuteCmd( cmd, entityInfo );
 
-            for (int i = 0; i < ilist.Count; i++) {
-                ilist[i].AfterInsert( obj );
+            for (int i = 0; i < ilist.Count; i++)
+            {
+                ilist[i].AfterInsert(obj);
             }
-            CacheUtil.CheckCountCache( "insert", obj, entityInfo );
+            CacheUtil.CheckCountCache("insert", obj, entityInfo);
             result.Info = obj;
 
-            CacheTime.updateTable( obj.GetType() );
+            CacheTime.updateTable(obj.GetType());
 
             return result;
         }
 
-        private static int executeCmd( IDbCommand cmd, EntityInfo entityInfo ) {
+        private static int executeCmd(IDbCommand cmd, EntityInfo entityInfo)
+        {
 
             cmd.ExecuteNonQuery();
 
-            String sqlId = String.Format( "select id from {0} order by id desc", entityInfo.TableName );
-            sqlId = entityInfo.Dialect.GetLimit( sqlId, 1 );
-            //logger.Info( "get id sql:" + sqlId );
+            String sqlId = String.Format("select id from {0} order by id desc", entityInfo.TableName);
+            sqlId = entityInfo.Dialect.GetLimit(sqlId, 1);
+
 
             cmd.CommandText = sqlId;
 
-            return cvt.ToInt( cmd.ExecuteScalar() );
+            return cvt.ToInt(cmd.ExecuteScalar());
         }
 
-        public static Result InsertSelf( IEntity obj ) {
-            return Insert( obj, Entity.GetInfo( obj ), false );
+        public static Result InsertSelf(IEntity obj)
+        {
+            return Insert(obj, Entity.GetInfo(obj), false);
         }
 
-        private static String getInsertSql( EntityInfo entityInfo ) {
+        private static String getInsertSql(EntityInfo entityInfo)
+        {
             String str = "insert into " + entityInfo.TableName + " (";
             String fStr = "";
             String vStr = ") values(";
-            for (int i = 0; i < entityInfo.SavedPropertyList.Count; i++) {
+            for (int i = 0; i < entityInfo.SavedPropertyList.Count; i++)
+            {
                 EntityPropertyInfo info = entityInfo.SavedPropertyList[i];
-                if (((!(info.Name.ToLower() == "id") || (entityInfo.Parent != null)) && info.SaveToDB) && (!info.IsList && !info.IsList)) {
+                if (((!(info.Name.ToLower() == "id") || (entityInfo.Parent != null)) && info.SaveToDB) && (!info.IsList && !info.IsList))
+                {
                     String col = info.ColumnName ?? "";
                     fStr = fStr + col + ", ";
-                    vStr = vStr + entityInfo.Dialect.GetParameter( info.ColumnName ) + ", ";
+                    vStr = vStr + entityInfo.Dialect.GetParameter(info.ColumnName) + ", ";
                 }
             }
-            fStr = fStr.Trim().TrimEnd( ',' );
-            vStr = vStr.Trim().TrimEnd( ',' );
+            fStr = fStr.Trim().TrimEnd(',');
+            vStr = vStr.Trim().TrimEnd(',');
             str = str + fStr + vStr + ")";
-            logger.Info( LoggerUtil.SqlPrefix + entityInfo.Name + " InsertSql：" + str );
+            logger.Info(LoggerUtil.SqlPrefix + entityInfo.Name + " InsertSql：" + str);
             return str;
         }
 

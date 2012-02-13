@@ -8,16 +8,41 @@
     <link href="/css/Default.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddOrderByAPI() {
             $.dialog({ content: 'url:AddOrderByAPI.aspx' });
+        }
+
+        function AddPrintTitle() {
+            $.dialog.prompt('请输入打印的标题',
+                function (val) {
+                    if (val)
+                        return true;
+                    else
+                        return false;
+                },
+                 $("#HAccount").val() + GetTime()
+            );
+        }
+
+        function GetTime() {
+            var myDate = new Date();
+            return myDate.toLocaleString();
         }
     </script>
 </head>
 <body>
     <form runat="server" id="form1">
-    <asp:HiddenField ID="hkey" runat="server" />
-    <asp:HiddenField ID="hstatus" runat="server" />
+    <asp:HiddenField ID="Hkey" runat="server" />
+    <asp:HiddenField ID="HStatus" runat="server" />
+    <asp:HiddenField ID="HPayStatus" runat="server" />
+    <asp:HiddenField ID="HShippedStatus" runat="server" />
+    <asp:HiddenField ID="HBegin" runat="server" />
+    <asp:HiddenField ID="HEnd" runat="server" />
+    <asp:HiddenField ID="HAccount" Value="jinbostore" runat="server" />
+    <asp:HiddenField ID="HPlatform" runat="server" />
+    <asp:HiddenField ID="HCompanyCode" runat="server" />
     <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-collapse: separate;
         border-spacing: 6px;">
         <tr valign="top">
@@ -39,25 +64,31 @@
                                 <img src="/Imgs/Icons/icon018a3.gif" /><b>订单产品系数设置&nbsp;</b></a>
                             <asp:LinkButton ID="lbMerger" runat="server" class='zPushBtn'>
                                     <img src="/Imgs/Icons/icon_column.gif" width="20" height="20" /><b>订单合并&nbsp;</b></asp:LinkButton>
-                            <asp:LinkButton ID="lbPicking" runat="server" hidefocus="true" onselectstart="return false"
-                                TabIndex="-1" class="zPushBtn">  <img src="/Imgs/Icons/icon018a5.gif"><b>添加订单到批次&nbsp;</b></asp:LinkButton>
+                            <asp:LinkButton ID="lbPrint" runat="server" class="zPushBtn" OnClick="lbPrint_Click" on
+                                OnClientClick="return AddPrintTitle();">  <img src="/Imgs/Icons/icon018a5.gif"><b>打印订单&nbsp;</b></asp:LinkButton>
                             <a href='javascript:void(0);' ztype='zPushBtn' class='zPushBtn' hidefocus='true'
-                                tabindex='-1' id='ImportOrder' onclick="ImportOrder(this);">
+                                tabindex='-1' id='ImportOrder' onclick="AddPrintTitle(this);">
                                 <img src="/Imgs/Icons/icon042a1.gif" width="20" height="20" /><b>订单导入&nbsp;</b></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="padding: 0 8px 4px;">
-                            所属平台:
+                            平台:
                             <asp:DropDownList ID="ddlPlatform" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
-                            所属账号:
+                            账号:
                             <asp:DropDownList ID="ddlAccount" runat="server">
                             </asp:DropDownList>
                             &nbsp;&nbsp;&nbsp;订单状态:
                             <asp:DropDownList ID="ddlOrderStatus" runat="server">
                             </asp:DropDownList>
-                            <input name="Keyword" type="text" id="txtSearch" value="" runat="server" style="width: 160px">
+                            <a>未付款</a> <a>已付款</a> <a>已发货</a>开始:<asp:TextBox ID="txtBegin" runat="server" Width="100"></asp:TextBox><img
+                                onclick="WdatePicker({el:'txtBegin'})" src="/Scripts/My97DatePicker/skin/datePicker.gif"
+                                width="16" height="22" align="absmiddle">结束:<asp:TextBox ID="txtEnd" runat="server"
+                                    Width="100"></asp:TextBox><img onclick="WdatePicker({el:'txtEnd'})" src="/Scripts/My97DatePicker/skin/datePicker.gif"
+                                        width="16" height="22" align="absmiddle">
+                            关键字
+                            <input name="Keyword" type="text" id="txtSearch" value="" runat="server" style="width: 160px" />
                             <asp:Button Text="查询" ID="btnSearch" runat="server" />
                         </td>
                     </tr>

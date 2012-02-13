@@ -11,7 +11,12 @@ namespace OMS.Modules.Order
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                Session["CompanyCode"] = "OMSTest";
+                rpRecord.DataSource = OMS.Core.DoMain.OrderPrintRecordType.findAll();
+                rpRecord.DataBind();
+            }
         }
     }
 }
