@@ -9,54 +9,50 @@
 var GridReportCodeBase = 'codebase="griectl.cab#Version=5,5,11,331"';
 
 //如果购买注册后，请用您的注册用户名与注册号替换下面变量中值
-var UserName = '锐浪报表插件本机开发测试注册';
+var UserName = '';
 var SerialNo = '4DFB949E066NYS7W11L8KAT53SA177391Q9LZQ094WUT9C9J3813SX8PTQC4ALPB9UAQN6TMA55Q3BN8E5726Z5A839QAD9P6E76TKNK5';
 
 //创建报表对象，报表对象是不可见的对象，详细请查看帮助中的 IGridppReport
-function CreateReport(Name)
-{
-	document.write('<OBJECT id="' + Name + '" classid="CLSID:50CA95AF-BDAA-4C69-A9C6-93E1136E68BC" ' + GridReportCodeBase + '" VIEWASTEXT></OBJECT>');
+function CreateReport(Name) {
+    document.write('<OBJECT id="' + Name + '" classid="CLSID:50CA95AF-BDAA-4C69-A9C6-93E1136E68BC" ' + GridReportCodeBase + '" VIEWASTEXT></OBJECT>');
 }
 
 //创建报表打印显示插件，详细请查看帮助中的 IGRPrintViewer
 //ReportURL - 获取报表模板的URL
 //DataURL - 获取报表数据的URL
-function CreatePrintViewer(ReportURL, DataURL)
-{
-	document.write('<OBJECT classid="CLSID:9E4CCA44-17FC-402b-822C-BFA6CBA77C0C" '+ GridReportCodeBase + ' width="100%" height="100%" id="ReportViewer" VIEWASTEXT>');
-	document.write('<param name="ReportURL" value="' + ReportURL + '">');
-	document.write('<param name="DataURL" value="' + DataURL + '">');
-	document.write('<param name="SerialNo" value="' + SerialNo + '">');
-	document.write('<param name="UserName" value="' + UserName + '">');
-	document.write('</OBJECT>');
+function CreatePrintViewer(ReportURL, DataURL) {
+    document.write('<OBJECT classid="CLSID:9E4CCA44-17FC-402b-822C-BFA6CBA77C0C" ' + GridReportCodeBase + ' width="100%" height="100%" id="ReportViewer" VIEWASTEXT>');
+    document.write('<param name="ReportURL" value="' + ReportURL + '">');
+    document.write('<param name="DataURL" value="' + DataURL + '">');
+    document.write('<param name="SerialNo" value="' + SerialNo + '">');
+    document.write('<param name="UserName" value="' + UserName + '">');
+    document.write('</OBJECT>');
 }
 
 //创建报表查询显示插件，详细请查看帮助中的 IGRDisplayViewer
 //ReportURL - 获取报表模板的URL
 //DataURL - 获取报表数据的URL
-function CreateDisplayViewer(ReportURL, DataURL)
-{
-	document.write('<OBJECT classid="CLSID:E060AFE6-5EFF-4830-B7F0-093ECC08EF37" '+ GridReportCodeBase + ' width="100%" height="100%" id="ReportViewer" VIEWASTEXT>');
-	document.write('<param name="ReportURL" value="' + ReportURL + '">');
-	document.write('<param name="DataURL" value="' + DataURL + '">');
-	document.write('<param name="SerialNo" value="' + SerialNo + '">');
-	document.write('<param name="UserName" value="' + UserName + '">');
-	document.write('</OBJECT>');
+function CreateDisplayViewer(ReportURL, DataURL) {
+    document.write('<OBJECT classid="CLSID:E060AFE6-5EFF-4830-B7F0-093ECC08EF37" ' + GridReportCodeBase + ' width="100%" height="100%" id="ReportViewer" VIEWASTEXT>');
+    document.write('<param name="ReportURL" value="' + ReportURL + '">');
+    document.write('<param name="DataURL" value="' + DataURL + '">');
+    document.write('<param name="SerialNo" value="' + SerialNo + '">');
+    document.write('<param name="UserName" value="' + UserName + '">');
+    document.write('</OBJECT>');
 }
 
 ///创建报表设计器插件，详细请查看帮助中的 IGRDesigner
 //LoadReportURL - 读取报表模板的URL，运行时从此URL读入报表模板数据并加载到设计器插件
 //SaveReportURL - 保存报表模板的URL，保存设计后的结果数据，由此URL的服务在WEB服务端将报表模板持久保存
 //DataURL - 获取报表运行时数据的URL，在设计器中进入打印视图与查询视图时从此URL获取报表数据
-function CreateDesigner(LoadReportURL, SaveReportURL, DataURL)
-{
-	document.write('<OBJECT classid="CLSID:76AB1C26-34A0-4898-A90B-74CCFF435C43" '+ GridReportCodeBase + ' width="100%" height="100%" id="ReportDesigner" VIEWASTEXT>');
-	document.write('<param name="LoadReportURL" value="' + LoadReportURL + '">');
-	document.write('<param name="SaveReportURL" value="' + SaveReportURL + '">');
-	document.write('<param name="DataURL" value="' + DataURL + '">');
-	document.write('<param name="SerialNo" value="' + SerialNo + '">');
-	document.write('<param name="UserName" value="' + UserName + '">');
-	document.write('</OBJECT>');
+function CreateDesigner(LoadReportURL, SaveReportURL, DataURL) {
+    document.write('<OBJECT classid="CLSID:76AB1C26-34A0-4898-A90B-74CCFF435C43" ' + GridReportCodeBase + ' width="100%" height="100%" id="ReportDesigner" VIEWASTEXT>');
+    document.write('<param name="LoadReportURL" value="' + LoadReportURL + '">');
+    document.write('<param name="SaveReportURL" value="' + SaveReportURL + '">');
+    document.write('<param name="DataURL" value="' + DataURL + '">');
+    document.write('<param name="SerialNo" value="' + SerialNo + '">');
+    document.write('<param name="UserName" value="' + UserName + '">');
+    document.write('</OBJECT>');
 }
 
 //用更多的参数创建报表打印显示插件，详细请查看帮助中的 IGRPrintViewer
@@ -66,17 +62,16 @@ function CreateDesigner(LoadReportURL, SaveReportURL, DataURL)
 //DataURL - 获取报表数据的URL
 //AutoRun - 指定插件在创建之后是否自动生成并展现报表,值为false或true
 //ExParams - 指定更多的插件属性阐述,形如: "<param name="%ParamName%" value="%Value%">"这样的参数串
-function CreatePrintViewerEx(Width, Height, ReportURL, DataURL, AutoRun, ExParams)
-{
-	document.write('<OBJECT classid="CLSID:9E4CCA44-17FC-402b-822C-BFA6CBA77C0C" '+ GridReportCodeBase);
-	document.write(' width="' + Width + '" height="' + Height + '" id="ReportViewer" VIEWASTEXT>');
-	document.write('<param name="ReportURL" value="' + ReportURL + '">');
-	document.write('<param name="DataURL" value="' + DataURL + '">');
-	document.write('<param name="AutoRun" value="' + AutoRun + '">');
-	document.write('<param name="SerialNo" value="' + SerialNo + '">');
-	document.write('<param name="UserName" value="' + UserName + '">');
-	document.write(ExParams);
-	document.write('</OBJECT>');
+function CreatePrintViewerEx(Width, Height, ReportURL, DataURL, AutoRun, ExParams) {
+    document.write('<OBJECT classid="CLSID:9E4CCA44-17FC-402b-822C-BFA6CBA77C0C" ' + GridReportCodeBase);
+    document.write(' width="' + Width + '" height="' + Height + '" id="ReportViewer" VIEWASTEXT>');
+    document.write('<param name="ReportURL" value="' + ReportURL + '">');
+    document.write('<param name="DataURL" value="' + DataURL + '">');
+    document.write('<param name="AutoRun" value="' + AutoRun + '">');
+    document.write('<param name="SerialNo" value="' + SerialNo + '">');
+    document.write('<param name="UserName" value="' + UserName + '">');
+    document.write(ExParams);
+    document.write('</OBJECT>');
 }
 
 //用更多的参数创建报表查询显示插件，详细请查看帮助中的 IGRDisplayViewer
@@ -86,17 +81,16 @@ function CreatePrintViewerEx(Width, Height, ReportURL, DataURL, AutoRun, ExParam
 //DataURL - 获取报表数据的URL
 //AutoRun - 指定插件在创建之后是否自动生成并展现报表,值为false或true
 //ExParams - 指定更多的插件属性阐述,形如: "<param name="%ParamName%" value="%Value%">"这样的参数串
-function CreateDisplayViewerEx(Width, Height, ReportURL, DataURL, AutoRun, ExParams)
-{
-	document.write('<OBJECT classid="CLSID:E060AFE6-5EFF-4830-B7F0-093ECC08EF37" '+ GridReportCodeBase);
-	document.write(' width="' + Width + '" height="' + Height + '" id="ReportViewer" VIEWASTEXT>');
-	document.write('<param name="ReportURL" value="' + ReportURL + '">');
-	document.write('<param name="DataURL" value="' + DataURL + '">');
-	document.write('<param name="AutoRun" value="' + AutoRun + '">');
-	document.write('<param name="SerialNo" value="' + SerialNo + '">');
-	document.write('<param name="UserName" value="' + UserName + '">');
-	document.write(ExParams);
-	document.write('</OBJECT>');
+function CreateDisplayViewerEx(Width, Height, ReportURL, DataURL, AutoRun, ExParams) {
+    document.write('<OBJECT classid="CLSID:E060AFE6-5EFF-4830-B7F0-093ECC08EF37" ' + GridReportCodeBase);
+    document.write(' width="' + Width + '" height="' + Height + '" id="ReportViewer" VIEWASTEXT>');
+    document.write('<param name="ReportURL" value="' + ReportURL + '">');
+    document.write('<param name="DataURL" value="' + DataURL + '">');
+    document.write('<param name="AutoRun" value="' + AutoRun + '">');
+    document.write('<param name="SerialNo" value="' + SerialNo + '">');
+    document.write('<param name="UserName" value="' + UserName + '">');
+    document.write(ExParams);
+    document.write('</OBJECT>');
 }
 
 ///用更多的参数创建报表设计器插件，详细请查看帮助中的 IGRDesigner
@@ -105,16 +99,15 @@ function CreateDisplayViewerEx(Width, Height, ReportURL, DataURL, AutoRun, ExPar
 //LoadReportURL - 读取报表模板的URL，运行时从此URL读入报表模板数据并加载到设计器插件
 //SaveReportURL - 保存报表模板的URL，保存设计后的结果数据，由此URL的服务在WEB服务端将报表模板持久保存
 //DataURL - 获取报表运行时数据的URL，在设计器中进入打印视图与查询视图时从此URL获取报表数据
-function CreateDesignerEx(Width, Height, LoadReportURL, SaveReportURL, DataURL, ExParams)
-{
-	document.write('<OBJECT classid="CLSID:76AB1C26-34A0-4898-A90B-74CCFF435C43" '+ GridReportCodeBase);
-	document.write(' width="' + Width + '" height="' + Height + '" id="ReportDesigner" VIEWASTEXT>');
-	document.write('<param name="LoadReportURL" value="' + LoadReportURL + '">');
-	document.write('<param name="SaveReportURL" value="' + SaveReportURL + '">');
-	document.write('<param name="DataURL" value="' + DataURL + '">');
-	document.write('<param name="SerialNo" value="' + SerialNo + '">');
-	document.write('<param name="UserName" value="' + UserName + '">');
-	document.write(ExParams);
-	document.write('</OBJECT>');
+function CreateDesignerEx(Width, Height, LoadReportURL, SaveReportURL, DataURL, ExParams) {
+    document.write('<OBJECT classid="CLSID:76AB1C26-34A0-4898-A90B-74CCFF435C43" ' + GridReportCodeBase);
+    document.write(' width="' + Width + '" height="' + Height + '" id="ReportDesigner" VIEWASTEXT>');
+    document.write('<param name="LoadReportURL" value="' + LoadReportURL + '">');
+    document.write('<param name="SaveReportURL" value="' + SaveReportURL + '">');
+    document.write('<param name="DataURL" value="' + DataURL + '">');
+    document.write('<param name="SerialNo" value="' + SerialNo + '">');
+    document.write('<param name="UserName" value="' + UserName + '">');
+    document.write(ExParams);
+    document.write('</OBJECT>');
 }
 

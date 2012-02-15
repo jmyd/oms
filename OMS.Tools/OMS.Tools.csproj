@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmazonOrderUtil.cs" />
     <Compile Include="AppSettingHelper.cs" />
+    <Compile Include="CsvReader.cs" />
     <Compile Include="EbayOrderUtil.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="IOrderUtil.cs" />

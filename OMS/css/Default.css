@@ -330,7 +330,9 @@ border-bottom: 1px #BBBBBB solid; }
 .tagList a:hover { text-decoration: none; background: #FFFFFF; border-color: #BBBBBB; }
 .tagList a.cur { position: relative; height: 25px; margin-bottom: -1px; background: #FFFFFF; border: #BBBBBB 1px solid; border-bottom: none; }
 /*pan*/
-.blockTable { border: #BBBBBB 0px solid; background: url(/Imgs/img/tableBg_left.gif) no-repeat left top; }
+.blockTable { border: #BBBBBB 0px solid; background: url(/Imgs/img/tableBg_left.gif) no-repeat left top;
+    width: 83%;
+}
 .blockTd { background: url(/Imgs/img/tableBg_right.gif) no-repeat right top; }
 .blockTd img { vertical-align:middle; }
 a.tip { cursor:help; }

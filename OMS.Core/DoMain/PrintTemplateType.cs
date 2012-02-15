@@ -36,11 +36,13 @@ namespace OMS.Core.DoMain
         ///<summary>
         /// Ãû³Æ
         ///</summary>
+
         public String Name { get; set; }
 
         ///<summary>
         /// Ä£°åÄÚÈİ
         ///</summary>
+        [LongText]
         public String Content { get; set; }
 
         ///<summary>
