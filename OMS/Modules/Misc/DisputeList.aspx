@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DisputeList.aspx.cs" Inherits="OMS.Modules.Misc.DisputeList" %>
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer"  TagPrefix="webdiyer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,11 +10,10 @@
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddDispute() {
-            $.dialog({ content: 'url:Dispute.aspx',
+            $.dialog({ title:'纠纷', content: 'url:Dispute.aspx',
                
             });
-        }     
-
+        } 
     </script>
 </head>
 <body>
@@ -30,8 +30,7 @@
                     </tr>
                     <tr>
                         <td style="padding: 0 8px 4px;">
-                            <a href='javascript:void(0);' class='zPushBtn' onclick="AddDispute();">
-                                <img src="/Imgs/Icons/icon018a4.gif" /><b>添加纠纷&nbsp;</b></a>
+                            <a href='javascript:void(0);' class='zPushBtn' onclick="AddDispute();"><img src="/Imgs/Icons/icon018a4.gif" /><b>添加纠纷&nbsp;</b></a>
                         </td>
                     </tr>
                     <tr>
@@ -116,6 +115,10 @@
                                 <tr>
                                     <td colspan="9" align="left" id="dg1_PageBar">
                                         <div style='float: right; font-family: Tahoma'>
+                                            <webdiyer:AspNetPager ID="AspNetPager1" runat="server" CssClass="anpager" CurrentPageButtonClass="cpb"
+                                                FirstPageText="第一页" LastPageText="最末页" NextPageText="下一页" PagingButtonLayoutType="None"
+                                                PrevPageText="上一页" OnPageChanged="AspNetPager1_PageChanged">
+                                            </webdiyer:AspNetPager>
                                         </div>
                                         <div style='float: left; font-family: Tahoma'>
                                         </div>

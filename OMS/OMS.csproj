@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="AspNetPager, Version=7.3.2.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\AspNetPager.dll</HintPath>
+      <HintPath>bin\AspNetPager.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -1410,6 +1410,10 @@
     <Content Include="Imgs\img\zvingBlue.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Modules\Misc\Dispute.aspx" />
+    <Content Include="Modules\Misc\DisputeApproach.aspx" />
+    <Content Include="Modules\Misc\DisputeApproachList.aspx" />
+    <Content Include="Modules\Misc\DisputeCategory.aspx" />
+    <Content Include="Modules\Misc\DisputeCategoryList.aspx" />
     <Content Include="Modules\Misc\DisputeList.aspx" />
     <Content Include="Modules\Order\AddOrderByAPI.aspx" />
     <Content Include="Modules\Order\AddOrderByImport.aspx" />
@@ -1790,6 +1794,34 @@
     </Compile>
     <Compile Include="Modules\Misc\Dispute.aspx.designer.cs">
       <DependentUpon>Dispute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeApproach.aspx.cs">
+      <DependentUpon>DisputeApproach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeApproach.aspx.designer.cs">
+      <DependentUpon>DisputeApproach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeApproachList.aspx.cs">
+      <DependentUpon>DisputeApproachList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeApproachList.aspx.designer.cs">
+      <DependentUpon>DisputeApproachList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeCategory.aspx.cs">
+      <DependentUpon>DisputeCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeCategory.aspx.designer.cs">
+      <DependentUpon>DisputeCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeCategoryList.aspx.cs">
+      <DependentUpon>DisputeCategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\DisputeCategoryList.aspx.designer.cs">
+      <DependentUpon>DisputeCategoryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Misc\DisputeList.aspx.cs">
       <DependentUpon>DisputeList.aspx</DependentUpon>

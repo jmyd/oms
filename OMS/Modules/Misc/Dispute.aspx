@@ -9,14 +9,7 @@
     <script src="../../Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         var api = frameElement.api;
-        api.button({
-            name: '确定',
-            focus: true,
-            callback: function () {
-                document.getElementById('btnSubmit').click();
-            }
-        });
-        api.button({
+            api.button({
             name: '取消',
             focus: false,
             callback: function () {
@@ -27,15 +20,7 @@
 </head>
 <body class="dialogBody">
     <form id="form2" runat="server">
-    <table width="500" align="center" cellpadding="2" cellspacing="0">
-        <tr>
-            <td height="10">
-                <asp:Button ID="btnSubmit" runat="server" Style="display: none;" Text="Button" 
-                    onclick="btnSubmit_Click"/>
-                <asp:HiddenField ID="hid" runat="server" />
-                <asp:HiddenField ID="hact" runat="server" />
-            </td>
-        </tr>
+    <table width="500" align="center" cellpadding="2" cellspacing="0">        
         <tr>
             <td width="500" valign="top">
                 <fieldset>
@@ -43,6 +28,63 @@
                         <label>
                             纠纷详情</label></legend>
                     <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td height="30" align="right">
+                                订单编号:
+                            </td>
+                            <td>
+                                <input type="text" id="txtOrderExNo" runat="server" /> <asp:Button 
+                                    ID="btnSearch" Text="查 找" runat="server" onclick="btnSearch_Click" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">
+                                平台:
+                            </td>
+                            <td>
+                                <input type="text" id="txtPlatformName" runat="server" />
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td height="30" align="right">
+                                账户:
+                            </td>
+                            <td>
+                                <input type="text" id="txtSaleAccountName" runat="server" />
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td height="30" align="right">
+                                发货时间:
+                            </td>
+                            <td>
+                                <input type="text" id="txtSendOrderDate" runat="server" />
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td height="30" align="right">
+                                产品编号:
+                            </td>
+                            <td>
+                                <input type="text" id="txtItemNo" runat="server" />
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td height="30" align="right">
+                                跟踪码:
+                            </td>
+                            <td>
+                                <input type="text" id="txtTrackCode" runat="server" />
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td height="30" align="right">
+                                运输方式:
+                            </td>
+                            <td>
+                                <input type="text" id="txtTransportMode" runat="server" />
+                            </td>
+                        </tr>  
                         <tr>
                             <td width="39%" height="30" align="right">
                                 纠纷日期:
@@ -59,29 +101,22 @@
                             <td>
                                 <asp:DropDownList ID="ddlDisputeCategory" runat="server"></asp:DropDownList>
                             </td>
-                        </tr>
+                        </tr>                       
                         <tr>
                             <td height="30" align="right">
-                                纠纷类型:
+                                纠纷状态:
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlDisputeType" runat="server"></asp:DropDownList>
+                                <input name="state" type="radio" value="未解决" id="state0" checked="checked" /><label for="state0">未解决</label>&nbsp;&nbsp;
+                                <input name="state" type="radio" value="已解决" id="state1" /><label for="state1">已解决</label>
                             </td>
-                        </tr>
-                        <tr>
-                            <td height="30" align="right">
-                                订单编号:
-                            </td>
-                            <td>
-                                <input type="text" id="txtOrderCode" runat="server" />
-                            </td>
-                        </tr>
+                        </tr>  
                         <tr>
                             <td height="30" align="right">
                                 解决日期:
                             </td>
                             <td>
-                                <input type="text" id="txtFinishOn" runat="server" class="inputText" onclick="WdatePicker()" />
+                                <input type="text" id="txtApproachOn" runat="server" class="inputText" onclick="WdatePicker()" />
                             </td>
                         </tr>
                         <tr>
@@ -89,7 +124,7 @@
                                 解决方式:
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlSolutionType" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlDisputeApproach" runat="server"></asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
@@ -99,7 +134,22 @@
                             <td>
                                 <input type="text" id="txtRefundAmount" runat="server" /> <asp:DropDownList ID="ddlCurrencyType" runat="server"></asp:DropDownList>
                             </td>
-                        </tr>                        
+                        </tr>       
+                        <tr>
+                            <td height="30" align="right">
+                                备注:
+                            </td>
+                            <td>
+                                <textarea id="txtRemark" runat="server"></textarea>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" height="8"></td></tr>
+                        <tr>
+                            <td height="10" colspan="2" align="center">
+                                <asp:Button ID="btnSubmit" runat="server" Text="确 定" 
+                                    onclick="btnSubmit_Click"/>
+                            </td>
+                        </tr>                 
                     </table>
                 </fieldset>
             </td>
