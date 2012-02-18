@@ -14,6 +14,22 @@
                
             });
         } 
+
+        function EditDispute(id) {
+            $.dialog({ title:'纠纷', content: 'url:Dispute.aspx?id=' + id,
+               
+            });
+        } 
+        function DelDispute(id) {
+            $.dialog.confirm('你确定要删除这条消息吗？', function(){
+                document.getElementById("hId").value=id;
+                document.getElementById("btnSubmit").click();
+                this.reload();
+            }, function(){
+                $.dialog.tips('您已经取消操作！');
+            });
+            
+        } 
     </script>
 </head>
 <body>
@@ -23,6 +39,13 @@
         <tr valign="top">
             <td>
                 <table width="100%" border="0" cellspacing="0" cellpadding="4" class="blockTable">
+                    <tr>
+                        <td>
+                            <asp:Button ID="btnSubmit" style=" display:none;" runat="server" Text="Button" 
+                                onclick="btnSubmit_Click"/>
+                            <asp:HiddenField ID="hId" runat="server" />
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="2" valign="middle" class="blockTd">
                             <img src="/Imgs/Icons/icon018a1.gif" />纠纷列表
@@ -80,13 +103,14 @@
                                             <td>
                                             </td>
                                             <td>
-                                                编辑|删除
+                                                <a href="javascript:EditDispute(<%# Eval("Id") %>);">编辑</a> | <a href="javascript:DelDispute(<%# Eval("Id") %>);">
+                                                                删除</a>
                                             </td>
                                             <td>
                                                 <%#Eval("CreateOn")%>
                                             </td>
                                             <td>
-                                                <%#Eval("DisputeCategory")%> <%#Eval("DisputeType")%>
+                                                <%#Eval("DisputeCategory")%> <%#Eval("DisputeTypeCode")%>
                                             </td>
                                             <td>
                                                 <%#Eval("OrderNo")%>

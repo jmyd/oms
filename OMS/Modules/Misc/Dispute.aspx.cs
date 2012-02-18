@@ -15,29 +15,53 @@ namespace OMS.Modules.Misc
     public partial class Dispute : System.Web.UI.Page
     {
         private OrderType order = null;
+        private int dId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string sId = Request.QueryString["id"];
+            
             if (!IsPostBack)
             {
                 ddlDisputeApproach.Items.Add(new ListItem("","0"));
                 List<DisputeApproachType> daList = DisputeApproachType.findAll();
                 foreach (DisputeApproachType da in daList)
                 {
-                    ddlDisputeApproach.Items.Add(new ListItem(da.ApproachName, da.Id.ToString()));
+                    ddlDisputeApproach.Items.Add(new ListItem(da.ApproachName, da.ApproachName));
                 }
 
                 List<DisputeCategoryType> dcList = DisputeCategoryType.findAll();
                 foreach (DisputeCategoryType dc in dcList)
                 {
-                    ddlDisputeCategory.Items.Add(new ListItem(dc.CateName, dc.Id.ToString()));
+                    ddlDisputeCategory.Items.Add(new ListItem(dc.CateName, dc.CateName));
                 }
 
                 ddlCurrencyType.Items.Add(new ListItem("", "0"));
                 List<CurrencyType> ctList = CurrencyType.findAll();
                 foreach (CurrencyType ct in ctList)
                 {
-                    ddlCurrencyType.Items.Add(new ListItem(ct.CurrencyCode, ct.Id.ToString()));
+                    ddlCurrencyType.Items.Add(new ListItem(ct.CurrencyCode, ct.CurrencyCode));
                 }
+                if (!string.IsNullOrEmpty(sId) && int.TryParse(sId, out dId))
+                {
+                    DisputeType dispute = DisputeType.findById(dId);
+                    if (dispute != null)
+                    {
+                        txtPlatformName.Value = dispute.PlatformName;
+                        txtSaleAccountName.Value = dispute.SaleAccountName;
+                        txtSendOrderDate.Value = dispute.SendOrderDate.ToShortDateString();
+                        txtItemNo.Value = dispute.ItemNo;
+                        txtTrackCode.Value = dispute.TrackCode;
+                        txtTransportMode.Value = dispute.TransportMode;
+                        txtApproachOn.Value = dispute.ResolutionTime.ToShortDateString();
+                        txtCreateOn.Value = dispute.CreateOn.ToShortDateString();
+                        txtOrderExNo.Value = dispute.OrderNo;
+                        txtRefundAmount.Value = dispute.RefundAmount.ToString();
+                        txtRemark.Value = dispute.Remark;
+                        ddlCurrencyType.SelectedValue = dispute.CurrencyCode;
+                        ddlDisputeApproach.SelectedValue = dispute.DisputeSolutionType;
+                        ddlDisputeCategory.SelectedValue=dispute.DisputeCategory;
+                    }
+                }                
             }
         }
 
@@ -61,7 +85,7 @@ namespace OMS.Modules.Misc
             di.SendOrderDate = order.AddTime;
             di.ItemNo = GetOrderItemNo(order);
             di.TrackCode = txtTrackCode.Value.Trim();
-            di.TransportMode = order.TransportMode;
+            di.TransportMode = txtTransportMode.Value.Trim();
             di.OrderId = order.OrderExNo;
             di.OrderNo = order.OrderNo;
             double refoundAmount = 0;
@@ -71,7 +95,7 @@ namespace OMS.Modules.Misc
             }
             if (refoundAmount > 0)
             {
-                di.CurrencyCode = ddlCurrencyType.SelectedItem.Text;
+                di.CurrencyCode = ddlCurrencyType.SelectedItem.Value;
             }
             di.Remark = txtRemark.Value.Trim();
             DateTime approachDate = DateTime.Now;
@@ -80,9 +104,17 @@ namespace OMS.Modules.Misc
                 di.ResolutionTime = approachDate;
             }            
             di.DisputeStatus = Request.Form["state"].Trim();
-            di.DisputeCategory = ddlDisputeCategory.SelectedItem.Text;
-            di.DisputeSolutionType = ddlDisputeApproach.SelectedItem.Text;
-            di.insert();
+            di.DisputeCategory = ddlDisputeCategory.SelectedItem.Value;
+            di.DisputeSolutionType = ddlDisputeApproach.SelectedItem.Value;
+
+            if (dId != 0)
+            {
+                di.update();
+            }
+            else
+            {
+                di.insert();
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

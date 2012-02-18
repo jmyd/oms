@@ -11,9 +11,7 @@
     <script type="text/javascript">
         function AddDisputeCategory() {
             $.dialog({ content: 'url:DisputeCategory.aspx',
-                ok: function () {
-                    this.reload();
-                }
+                
             });
         } 
     </script>

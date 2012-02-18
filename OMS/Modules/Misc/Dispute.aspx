@@ -10,10 +10,18 @@
     <script type="text/javascript">
         var api = frameElement.api;
             api.button({
-            name: '取消',
-            focus: false,
-            callback: function () {
+                name: '确定',
+                focus: true,
+                callback: function () {
+                    document.getElementById('btnSubmit').click();
+                    this.reload();
+                }
+            });
 
+            api.button({
+                name: '取消',
+                focus: false,
+                callback: function () {
             }
         });
     </script>
@@ -28,6 +36,12 @@
                         <label>
                             纠纷详情</label></legend>
                     <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <asp:Button ID="btnSubmit" style=" display:none;" runat="server" Text="Button" 
+                                    onclick="btnSubmit_Click"/>
+                            </td>
+                        </tr>
                         <tr>
                             <td height="30" align="right">
                                 订单编号:
@@ -142,14 +156,7 @@
                             <td>
                                 <textarea id="txtRemark" runat="server"></textarea>
                             </td>
-                        </tr>
-                        <tr><td colspan="2" height="8"></td></tr>
-                        <tr>
-                            <td height="10" colspan="2" align="center">
-                                <asp:Button ID="btnSubmit" runat="server" Text="确 定" 
-                                    onclick="btnSubmit_Click"/>
-                            </td>
-                        </tr>                 
+                        </tr>                
                     </table>
                 </fieldset>
             </td>

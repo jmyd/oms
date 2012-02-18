@@ -19,11 +19,34 @@ namespace OMS.Modules.Misc
             {
                 Session["CompanyCode"] = "OMSTest";
             }
+            if (!IsPostBack)
+            {
+                RpDisputDatabind();
+            }
         }
 
         protected void AspNetPager1_PageChanged(object sender, EventArgs e)
         {
+            RpDisputDatabind();
+        }
 
+        private void RpDisputDatabind()
+        {
+            AspNetPager1.RecordCount = DisputeType.count();
+            DataPage<DisputeType> dp = db.findPage<DisputeType>("", AspNetPager1.CurrentPageIndex, AspNetPager1.PageSize);
+            rpDispute.DataSource = dp.Results;
+            rpDispute.DataBind();
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            int disputeId = 0;
+            string sId = Request.Form[hId.ID].Trim();
+
+            if (!string.IsNullOrEmpty(sId) && int.TryParse(sId, out disputeId))
+            {
+                DisputeType.delete(disputeId);
+            }
         }
     }
 }

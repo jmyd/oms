@@ -13,7 +13,7 @@
             focus: true,
             callback: function () {
                 document.getElementById('btnSubmit').click();
-
+                this.reload();
             }
         });
         api.button({
@@ -32,8 +32,6 @@
             <td height="10">
                 <asp:Button ID="btnSubmit" runat="server" Style="display: none;" Text="Button" 
                     onclick="btnSubmit_Click"/>
-                <asp:HiddenField ID="hid" runat="server" />
-                <asp:HiddenField ID="hact" runat="server" />
             </td>
         </tr>
         <tr>
