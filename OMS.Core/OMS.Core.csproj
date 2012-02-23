@@ -47,7 +47,9 @@
     <Compile Include="DoMain\EbayItemType.cs" />
     <Compile Include="DoMain\EbayOrderIDType.cs" />
     <Compile Include="DoMain\EmailFieldType.cs" />
+    <Compile Include="DoMain\EmailRepliedType.cs" />
     <Compile Include="DoMain\EmailTemplateType.cs" />
+    <Compile Include="DoMain\EmailType.cs" />
     <Compile Include="DoMain\FeedbackType.cs" />
     <Compile Include="DoMain\GoodsCategoryType.cs" />
     <Compile Include="DoMain\GoodsCoefficientType.cs" />

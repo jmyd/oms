@@ -20,22 +20,19 @@ namespace OMS.Modules.Misc
         private string currentEbayAccount = "";
         private DateTime minTime = new DateTime(1999, 1, 1);
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
-            
+        {            
             if (!IsPostBack)
             {
                 Session["CompanyCode"] = "OMSTest";
+                List<SaleAccountType> saleAccountList = SaleAccountType.findAll();
+                foreach (SaleAccountType sa in saleAccountList)
+                {
+                    accountLink += " <a href='EmailList.aspx?ea=" + sa.UserName + "'>" + sa.UserName + "</a>" + " | ";
+                    account += "'" + sa.UserName + "',";
+                }
+                accountLink += " <a href='EmailList.aspx'>全部</a>";
                 RpEmailDataBind();
             }
-            List<SaleAccountType> saleAccountList = SaleAccountType.findAll();
-            foreach (SaleAccountType sa in saleAccountList)
-            {
-                accountLink += " <a href='EmailList.aspx?ea=" + sa.UserName + "'>" + sa.UserName + "</a>" + " | ";
-                account += "'" + sa.UserName + "',";
-            }
-            accountLink += " <a href='EmailList.aspx'>全部</a>"; 
-                       
         }
 
         protected void AspNetPager1_PageChanged(object sender, EventArgs e)
@@ -102,8 +99,6 @@ namespace OMS.Modules.Misc
             string type = Request.QueryString["tp"];
             currentEbayAccount = ebayAccount;
 
-
-
             txtStartDate.Value = sDate;
             txtEndDate.Value = eDate;
             txtStartHour.Text = sHour;
@@ -143,13 +138,12 @@ namespace OMS.Modules.Misc
             }
             if (!string.IsNullOrEmpty(ebayAccount))
             {
-                string et = ebayAccount.Replace("|", "','");
-                sqlParam += " AND [SaleAccount] IN ('" + et + "')";
+                sqlParam += " AND [SaleAccount] IN ('" + ebayAccount + "')";
             }
             else
             {
                 string dp = account.TrimEnd(',');
-                sqlParam += " AND [SaleAccount] IN ('" + dp + "')";
+                sqlParam += " AND [SaleAccount] IN (" + dp + ")";
             }
 
             AspNetPager1.RecordCount = EmailType.count();
@@ -230,7 +224,7 @@ namespace OMS.Modules.Misc
         protected void rpEmial_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             Button btnSetImportant = (Button)e.Item.FindControl("btnSetImportant");
-            if (((DataRowView)e.Item.DataItem)["SortNumber"].ToString() == "20")
+            if (((EmailType)e.Item.DataItem).SortNumber == 20)
             {
                 btnSetImportant.Text = "取消";
             }
@@ -238,41 +232,40 @@ namespace OMS.Modules.Misc
             {
                 btnSetImportant.Text = "设定";
             }
-            
-            Label lblTitle = (Label)e.Item.FindControl("lblTitle");
+
+            Label lblBody = (Label)e.Item.FindControl("lblBody");
             StringBuilder sb = new StringBuilder();
             sb.Append("<a onclick=");
             sb.Append('"');
-            sb.Append("Reply('");
-            sb.Append(((DataRowView)e.Item.DataItem)["MessageID"].ToString());
+            sb.Append("Reply('url:Reply.aspx?id=");
+            sb.Append(((EmailType)e.Item.DataItem).Id.ToString());
             sb.Append("&ea=");
             sb.Append(currentEbayAccount);
             sb.Append("')");
             sb.Append('"');
             sb.Append(" href='#'>");
-            sb.Append(CutString(((DataRowView)e.Item.DataItem)["Body"].ToString(), 60));
+            sb.Append(CutString(((EmailType)e.Item.DataItem).Body, 60));
             sb.Append("</a></span>");
 
-            if (((DataRowView)e.Item.DataItem)["SortNumber"].ToString() == "50")
+            if (((EmailType)e.Item.DataItem).SortNumber == 50)
             {
-
-                lblTitle.Text = "<span class='email_title_50'>" + sb.ToString();
+                lblBody.Text = "<span class='email_title_50'>" + sb.ToString();
             }
-            else if (((DataRowView)e.Item.DataItem)["SortNumber"].ToString() == "40")
+            else if (((EmailType)e.Item.DataItem).SortNumber == 40)
             {
-                lblTitle.Text = "<span class='email_title_40'>" + sb.ToString();
+                lblBody.Text = "<span class='email_title_40'>" + sb.ToString();
             }
-            else if (((DataRowView)e.Item.DataItem)["SortNumber"].ToString() == "30")
+            else if (((EmailType)e.Item.DataItem).SortNumber == 30)
             {
-                lblTitle.Text = "<span class='email_title_30'>" + sb.ToString();
+                lblBody.Text = "<span class='email_title_30'>" + sb.ToString();
             }
-            else if (((DataRowView)e.Item.DataItem)["SortNumber"].ToString() == "20")
+            else if (((EmailType)e.Item.DataItem).SortNumber == 20)
             {
-                lblTitle.Text = "<span class='email_title_20'>" + sb.ToString();
+                lblBody.Text = "<span class='email_title_20'>" + sb.ToString();
             }
             else
             {
-                lblTitle.Text = "<span class='email_title'>" + sb.ToString();
+                lblBody.Text = "<span class='email_title'>" + sb.ToString();
             }
         }
 
@@ -287,7 +280,5 @@ namespace OMS.Modules.Misc
                 return oldString;
             }
         }
-
-
     }
 }

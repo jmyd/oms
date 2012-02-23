@@ -36,9 +36,13 @@ namespace OMS.Modules.Misc
                 return;
             }
 
-            Oms.WebService OmsService = new Oms.WebService();
-            Oms.OrderInfo[] oiArray = OmsService.GetOrder("FD_MAIL", ce.BuyerAccount, ce.SaleAccount);
-            rpOrderInfo.DataSource = oiArray;
+            List<OrderType> listOrder = OrderType.find("BuyerId='" + ce.BuyerAccount + "' and UserNameForm='" + ce.SaleAccount + "' and CreateOn>'" + DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd") + "'").list();
+            for (int i = 0; i < listOrder.Count; i++)
+            {
+                listOrder[i].OrderGoods = OrderGoodsType.find("OrderNo='" + listOrder[i].Id + "'").list();
+            }
+
+            rpOrderInfo.DataSource = listOrder;
             rpOrderInfo.DataBind();
 
             StringBuilder sb = new StringBuilder();

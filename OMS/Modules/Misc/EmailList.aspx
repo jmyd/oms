@@ -10,8 +10,8 @@
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
     <script src="../../Scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
-        function Reply(id) {
-            $.dialog({width:1024, height:600, title:'回邮件', content:'url:Reply.aspx?id=' + id,
+        function Reply(url) {
+            $.dialog({width:1024, height:600, title:'回邮件', content:url,
                
             });
         } 
