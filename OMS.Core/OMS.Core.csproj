@@ -45,6 +45,7 @@
     <Compile Include="DoMain\DisputeCategoryType.cs" />
     <Compile Include="DoMain\DisputeType.cs" />
     <Compile Include="DoMain\EbayItemType.cs" />
+    <Compile Include="DoMain\EmailType.cs" />
     <Compile Include="DoMain\EmailFieldType.cs" />
     <Compile Include="DoMain\EmailTemplateType.cs" />
     <Compile Include="DoMain\FeedbackType.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="DoMain\PackageType.cs" />
     <Compile Include="DoMain\PaypalAccountType.cs" />
     <Compile Include="DoMain\PrintTemplateType.cs" />
+    <Compile Include="DoMain\EmailRepliedType.cs" />
     <Compile Include="DoMain\SaleAccountType.cs" />
     <Compile Include="DoMain\SerialNumberType.cs" />
     <Compile Include="DoMain\StockInType.cs" />

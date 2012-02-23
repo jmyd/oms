@@ -16,9 +16,11 @@ namespace OMS.Modules.Misc
     {
         private OrderType order = null;
         private int dId = 0;
+        private int oId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string sId = Request.QueryString["id"];
+            string strDisputeId = Request.QueryString["id"];
+            string strOrderId=Request.QueryString["oId"];
             
             if (!IsPostBack)
             {
@@ -41,7 +43,7 @@ namespace OMS.Modules.Misc
                 {
                     ddlCurrencyType.Items.Add(new ListItem(ct.CurrencyCode, ct.CurrencyCode));
                 }
-                if (!string.IsNullOrEmpty(sId) && int.TryParse(sId, out dId))
+                if (!string.IsNullOrEmpty(strDisputeId) && int.TryParse(strDisputeId, out dId))
                 {
                     DisputeType dispute = DisputeType.findById(dId);
                     if (dispute != null)
@@ -61,7 +63,21 @@ namespace OMS.Modules.Misc
                         ddlDisputeApproach.SelectedValue = dispute.DisputeSolutionType;
                         ddlDisputeCategory.SelectedValue=dispute.DisputeCategory;
                     }
-                }                
+                }
+
+                if (!string.IsNullOrEmpty(strOrderId) && int.TryParse(strOrderId, out oId))
+                {
+                    order = OrderType.find(" OrderExNo = '" + txtOrderExNo.Value.Trim() + "'").first();
+                    if (order != null)
+                    {
+                        txtPlatformName.Value = order.OrderForm;
+                        txtSaleAccountName.Value = order.UserNameForm;
+                        txtSendOrderDate.Value = order.AddTime.ToString();
+                        txtItemNo.Value = GetOrderItemNo(order);
+                        txtTrackCode.Value = "";
+                        txtTransportMode.Value = order.TransportMode;
+                    }
+                }
             }
         }
 
@@ -107,7 +123,7 @@ namespace OMS.Modules.Misc
             di.DisputeCategory = ddlDisputeCategory.SelectedItem.Value;
             di.DisputeSolutionType = ddlDisputeApproach.SelectedItem.Value;
 
-            if (dId != 0)
+            if (dId != 0 || oId != 0)
             {
                 di.update();
             }
@@ -119,6 +135,10 @@ namespace OMS.Modules.Misc
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtOrderExNo.Value.Trim()))
+            {
+                return;
+            }
             order = OrderType.find(" OrderExNo = '" + txtOrderExNo.Value.Trim() + "'").first();
             if (order != null)
             {

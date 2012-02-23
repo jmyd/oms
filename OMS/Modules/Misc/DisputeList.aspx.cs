@@ -18,9 +18,6 @@ namespace OMS.Modules.Misc
             if (!this.Page.IsPostBack)
             {
                 Session["CompanyCode"] = "OMSTest";
-            }
-            if (!IsPostBack)
-            {
                 RpDisputDatabind();
             }
         }

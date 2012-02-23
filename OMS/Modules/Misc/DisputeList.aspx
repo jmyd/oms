@@ -35,17 +35,10 @@
 <body>
     <form id="form1" runat="server">
     <table width="100%" border="0" cellspacing="6" cellpadding="0" style="border-collapse: separate;
-        border-spacing: 6px;">
+        border-spacing: 6px;">        
         <tr valign="top">
             <td>
-                <table width="100%" border="0" cellspacing="0" cellpadding="4" class="blockTable">
-                    <tr>
-                        <td>
-                            <asp:Button ID="btnSubmit" style=" display:none;" runat="server" Text="Button" 
-                                onclick="btnSubmit_Click"/>
-                            <asp:HiddenField ID="hId" runat="server" />
-                        </td>
-                    </tr>
+                <table width="100%" border="0" cellspacing="0" cellpadding="4" class="blockTable">                    
                     <tr>
                         <td colspan="2" valign="middle" class="blockTd">
                             <img src="/Imgs/Icons/icon018a1.gif" />纠纷列表
@@ -152,6 +145,12 @@
                         </td>
                     </tr>
                 </table>
+            </td>
+        </tr>
+        <tr>
+            <td><asp:Button ID="btnSubmit" style=" display:none;" runat="server" Text="Button" 
+                    onclick="btnSubmit_Click"/>
+                <asp:HiddenField ID="hId" runat="server" />
             </td>
         </tr>
     </table>
