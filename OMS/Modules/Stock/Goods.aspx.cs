@@ -11,6 +11,14 @@ namespace OMS.Modules.Stock
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                this.DoPageLoad();
+            }
+        }
+
+        private void DoPageLoad()
+        {
 
         }
     }

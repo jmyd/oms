@@ -52,6 +52,7 @@
     <Compile Include="EbayOrderUtil.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="IOrderUtil.cs" />
+    <Compile Include="OrderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

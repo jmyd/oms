@@ -14,17 +14,21 @@
             $.dialog({ content: 'url:AddOrderByAPI.aspx' });
         }
 
-        function AddPrintTitle() {
-            $.dialog.prompt('请输入打印的标题',
-                function (val) {
-                    if (val)
-                        return true;
-                    else
-                        return false;
-                },
-                 $("#HAccount").val() + GetTime()
-            );
+        function AddOrderByImport() {
+            $.dialog({ content: 'AddOrderByImport.aspx' });
         }
+
+        //        function AddPrintTitle() {
+        //            $.dialog.prompt('请输入打印的标题',
+        //                function (val) {
+        //                    if (val)
+        //                        return true;
+        //                    else
+        //                        return false;
+        //                },
+        //                 $("#HAccount").val() + GetTime()
+        //            );
+        //        }
 
         function GetTime() {
             var myDate = new Date();
@@ -64,20 +68,19 @@
                                 <img src="/Imgs/Icons/icon018a3.gif" /><b>订单产品系数设置&nbsp;</b></a>
                             <asp:LinkButton ID="lbMerger" runat="server" class='zPushBtn'>
                                     <img src="/Imgs/Icons/icon_column.gif" width="20" height="20" /><b>订单合并&nbsp;</b></asp:LinkButton>
-                            <asp:LinkButton ID="lbPrint" runat="server" class="zPushBtn" OnClick="lbPrint_Click" on
-                                OnClientClick="return AddPrintTitle();">  <img src="/Imgs/Icons/icon018a5.gif"><b>打印订单&nbsp;</b></asp:LinkButton>
+                            <asp:LinkButton ID="lbPrint" runat="server" class="zPushBtn" OnClick="lbPrint_Click">  <img src="/Imgs/Icons/icon018a5.gif"><b>打印订单&nbsp;</b></asp:LinkButton>
                             <a href='javascript:void(0);' ztype='zPushBtn' class='zPushBtn' hidefocus='true'
-                                tabindex='-1' id='ImportOrder' onclick="AddPrintTitle(this);">
+                                tabindex='-1' id='ImportOrder' onclick="AddOrderByImport();">
                                 <img src="/Imgs/Icons/icon042a1.gif" width="20" height="20" /><b>订单导入&nbsp;</b></a>
                         </td>
                     </tr>
                     <tr>
                         <td style="padding: 0 8px 4px;">
                             平台:
-                            <asp:DropDownList ID="ddlPlatform" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="ddlPlatform" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlPlatform_SelectedIndexChanged">
                             </asp:DropDownList>
                             账号:
-                            <asp:DropDownList ID="ddlAccount" runat="server">
+                            <asp:DropDownList ID="ddlAccount" runat="server" OnSelectedIndexChanged="ddlAccount_SelectedIndexChanged">
                             </asp:DropDownList>
                             &nbsp;&nbsp;&nbsp;订单状态:
                             <asp:DropDownList ID="ddlOrderStatus" runat="server">
@@ -89,7 +92,7 @@
                                         width="16" height="22" align="absmiddle">
                             关键字
                             <input name="Keyword" type="text" id="txtSearch" value="" runat="server" style="width: 160px" />
-                            <asp:Button Text="查询" ID="btnSearch" runat="server" />
+                            <asp:Button Text="查询" ID="btnSearch" runat="server" OnClick="btnSearch_Click" />
                         </td>
                     </tr>
                     <tr>

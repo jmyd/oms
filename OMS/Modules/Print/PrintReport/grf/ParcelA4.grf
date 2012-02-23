@@ -2,7 +2,6 @@
 	Version='5.6.0.0'
 	Title='包裹单'
 	AlignToGrid=F
-	PageDivideSpacing=0.1
 	PrintAsDesignPaper=T
 	MonoPrint=T
 	Object Font
@@ -11,22 +10,21 @@
 		Weight=400
 		Charset=134
 	End
+	ShowMoneyDigit=5
 	SkipQuery=T
 	Object Printer
-		Size=256
-		Width=10.5
-		Height=9
-		LeftMargin=0.25
-		TopMargin=0.1
-		RightMargin=0.25
-		BottomMargin=0.1
+		LeftMargin=0
+		TopMargin=0
+		RightMargin=0
+		BottomMargin=0
 	End
 	Object DetailGrid
-		BorderStyles=[]
-		BorderWidth=0.1
-		CenterView=F
+		BorderWidth=0
+		ColLineWidth=0
+		RowLineWidth=0
 		ColLineColor=00696969
 		RowLineColor=00696969
+		PageColumnCount=2
 		Object Recordset
 			SortAsc=F
 			Editable=F
@@ -111,12 +109,8 @@
 		End
 		Items Column
 			Item
-				Name='McFee'
-				Width=0.846667
-			End
-			Item
 				Name='Column3'
-				Width=9.18104
+				Width=10
 			End
 		End
 		Object ColumnContent
@@ -124,10 +118,6 @@
 			Height=0
 			AdjustRowHeight=F
 			Items ColumnContentCell
-				Item
-					Column='McFee'
-					FreeCell=T
-				End
 				Item
 					Column='Column3'
 					TextAlign=MiddleCenter
@@ -140,10 +130,6 @@
 			Items ColumnTitleCell
 				Item
 					GroupTitle=F
-					Column='McFee'
-				End
-				Item
-					GroupTitle=F
 					Column='Column3'
 					Text='Column3'
 				End
@@ -154,7 +140,7 @@
 				Name='paypal'
 				ByFields='PackageNo'
 				Object GroupHeader
-					Height=5.92667
+					Height=9.02229
 					PrintGridBorder=F
 					Items Control
 						Item
@@ -166,11 +152,11 @@
 								Bold=T
 								Charset=134
 							End
-							Left=0.396875
+							Left=0.211667
 							Top=0.185208
-							Width=1.13771
+							Width=1.27
 							Height=0.582083
-							TextAlign=TopLeft
+							TextAlign=TopRight
 							Text='From:'
 						End
 						Item
@@ -182,11 +168,11 @@
 								Bold=T
 								Charset=134
 							End
-							Left=0.635
+							Left=0.846667
 							Top=1.87854
-							Width=0.873125
+							Width=0.635
 							Height=0.502708
-							TextAlign=TopLeft
+							TextAlign=TopRight
 							Text='To:'
 						End
 						Item
@@ -198,9 +184,9 @@
 								Weight=400
 								Charset=134
 							End
-							Left=1.53458
-							Top=2.35479
-							Width=7.35542
+							Left=1.50813
+							Top=2.32833
+							Width=7.19667
 							Height=1.5875
 							WordWrap=T
 							TextAlign=TopLeft
@@ -218,7 +204,7 @@
 							End
 							Left=1.48167
 							Top=0.132292
-							Width=4.23333
+							Width=2.83104
 							Height=0.47625
 							TextAlign=TopLeft
 							DataField='FromMan'
@@ -234,7 +220,7 @@
 							End
 							Left=1.48167
 							Top=0.529167
-							Width=4.39208
+							Width=3.54542
 							Height=0.820208
 							WordWrap=T
 							TextAlign=TopLeft
@@ -250,11 +236,11 @@
 								Bold=T
 								Charset=134
 							End
-							Left=0.555625
-							Top=1.40229
-							Width=0.873125
+							Left=0.47625
+							Top=1.32292
+							Width=1.00542
 							Height=0.661458
-							TextAlign=TopLeft
+							TextAlign=TopRight
 							Text='Tel:'
 						End
 						Item
@@ -268,7 +254,7 @@
 							End
 							Left=1.53458
 							Top=1.37583
-							Width=4.39208
+							Width=3.83646
 							Height=0.449792
 							TextAlign=TopLeft
 							DataField='SendPhone'
@@ -326,7 +312,7 @@
 								Bold=T
 								Charset=134
 							End
-							Left=9.10167
+							Left=8.73125
 							Top=1.74625
 							Width=0.820208
 							Height=4.33917
@@ -361,7 +347,7 @@
 						Item
 							Type=ShapeBox
 							Name='方框'
-							Left=5.95313
+							Left=5.47688
 							Top=0.0529167
 							Width=3.94229
 							Height=1.5875
@@ -370,14 +356,14 @@
 						Item
 							Type=Line
 							Name='Line1'
-							Left=6.58813
+							Left=6.11188
 							Top=0.079375
 							Height=1.56104
 						End
 						Item
 							Type=Line
 							Name='Line2'
-							Left=8.67833
+							Left=8.20208
 							Top=0.105833
 							Height=1.53458
 						End
@@ -390,7 +376,7 @@
 								Bold=T
 								Charset=134
 							End
-							Left=6.13833
+							Left=5.66208
 							Top=0.370417
 							Width=0.343958
 							Height=0.926042
@@ -405,7 +391,7 @@
 								Weight=400
 								Charset=134
 							End
-							Left=6.64104
+							Left=6.16479
 							Top=0.132292
 							Width=2.01083
 							Height=1.48167
@@ -421,7 +407,7 @@
 								Weight=400
 								Charset=134
 							End
-							Left=8.78417
+							Left=8.30792
 							Top=0.15875
 							Width=1.00542
 							Height=1.37583
@@ -437,20 +423,13 @@
 								Bold=T
 								Charset=134
 							End
-							Left=0.449792
+							Left=0.687917
 							Top=4.20688
-							Width=0.687917
+							Width=0.79375
 							Height=0.502708
-							TextAlign=TopLeft
+							TextAlign=TopRight
 							Text='No:'
 						End
-					End
-				End
-				Object GroupFooter
-					Height=2.83104
-					NewPage=After
-					PrintGridBorder=F
-					Items Control
 						Item
 							Type=StaticBox
 							Name='StaticBox6'
@@ -460,8 +439,8 @@
 								Bold=T
 								Charset=134
 							End
-							Left=0.343958
-							Top=1.34938
+							Left=0.132292
+							Top=7.22313
 							Width=1.50813
 							Height=0.555625
 							Text='Remark:'
@@ -469,29 +448,32 @@
 						Item
 							Type=ShapeBox
 							Name='ShapeBox1'
-							Left=0.370417
+							Left=0.15875
+							Top=5.87375
 							Width=1.71979
 							Height=0.661458
 						End
 						Item
 							Type=ShapeBox
 							Name='ShapeBox2'
-							Left=2.06375
-							Width=6.24417
+							Left=1.85208
+							Top=5.87375
+							Width=6.0325
 							Height=0.661458
 						End
 						Item
 							Type=ShapeBox
 							Name='ShapeBox3'
-							Left=8.28146
+							Left=7.85813
+							Top=5.87375
 							Width=1.48167
 							Height=0.661458
 						End
 						Item
 							Type=FieldBox
 							Name='FieldBox17'
-							Left=0.396875
-							Top=0.0264583
+							Left=0.185208
+							Top=5.90021
 							Width=1.66688
 							Height=0.608542
 							DataField='ItemNo'
@@ -499,18 +481,18 @@
 						Item
 							Type=FieldBox
 							Name='FieldBox18'
-							Left=2.27542
-							Top=0.079375
-							Width=6.08542
+							Left=2.06375
+							Top=5.95313
+							Width=5.66208
 							Height=0.47625
 							DataField='ItemName'
 						End
 						Item
 							Type=FieldBox
 							Name='FieldBox19'
-							Left=8.33438
-							Top=0.0529167
-							Width=1.32292
+							Left=7.9375
+							Top=5.92667
+							Width=1.24354
 							Height=0.5
 							DataField='SumNum'
 						End
@@ -523,8 +505,8 @@
 								Weight=400
 								Charset=134
 							End
-							Left=4.94771
-							Top=0.687917
+							Left=4.57729
+							Top=6.56167
 							Width=4.73604
 							Height=0.396875
 							GetDisplayTextScript='var count = Report.FieldByName("OCount").AsString;\r\nif (count > 1)\r\n{\r\n        Sender.DisplayText = "多产品订单,请打印多产品配货单";\r\n}\r\nelse{\r\n        Sender.DisplayText ="";\r\n}'
@@ -539,8 +521,8 @@
 								Weight=400
 								Charset=134
 							End
-							Left=0.264583
-							Top=0.714375
+							Left=0.0529167
+							Top=6.58813
 							Width=3.99521
 							Height=0.423333
 							Text='[#TxnId#]'
@@ -554,8 +536,8 @@
 								Weight=400
 								Charset=134
 							End
-							Left=0.423333
-							Top=1.08479
+							Left=0.211667
+							Top=6.95854
 							Width=3.28083
 							Height=0.423333
 							SystemVar=CurrentDateTime
@@ -569,9 +551,9 @@
 								Weight=400
 								Charset=134
 							End
-							Left=1.93146
-							Top=1.42875
-							Width=7.77875
+							Left=1.71979
+							Top=7.3025
+							Width=7.51417
 							Height=1.29646
 							WordWrap=T
 							TextAlign=TopLeft
@@ -587,13 +569,18 @@
 								Weight=400
 								Charset=134
 							End
-							Left=5.76792
-							Top=1.05833
+							Left=5.26521
+							Top=6.93208
 							Width=3.96875
 							Height=0.370417
 							Text='金额：[#OrderCurrencyCode#]:[#SumAmount#]'
 						End
 					End
+				End
+				Object GroupFooter
+					Height=0
+					NewPage=After
+					PrintGridBorder=F
 				End
 			End
 		End

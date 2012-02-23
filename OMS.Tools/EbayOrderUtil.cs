@@ -76,23 +76,7 @@ namespace OMS.Tools
                     //    order.ContactMan += "(" + ot.ShippingAddress.FirstName + ot.ShippingAddress.LastName + ")";
                     //}
                     //判断买家是不是存在
-                    OMS.Core.DoMain.BuyerType bt = OMS.Core.DoMain.BuyerType.find("BuyerCode='" + order.BuyerCode + "'").first();
-                    if (bt == null)
-                    {
-                        bt = new Core.DoMain.BuyerType();
-                        //不存在是的操作
-                        bt.BuyerCode = order.BuyerCode;
-                        bt.PlatformCode = PlatformType.Ebay.ToString();
-
-                        bt.BuyCount++;
-                        bt.insert();
-                    }
-                    else
-                    {
-                        bt.BuyCount++;
-                        bt.update();
-                    }
-                    order.BuyerId = bt.Id.ToString();
+                    GetBuyer(order);
 
                     //订单中的产品
                     GetPaypals();
@@ -211,6 +195,27 @@ namespace OMS.Tools
                 i++;
             } while (m != null && m.Count == 100);
 
+        }
+
+        private static void GetBuyer(OMS.Core.DoMain.OrderType order)
+        {
+            OMS.Core.DoMain.BuyerType bt = OMS.Core.DoMain.BuyerType.find("BuyerCode='" + order.BuyerCode + "' and  PlatformCode ='" + PlatformType.Ebay.ToString() + "'").first();
+            if (bt == null)
+            {
+                bt = new Core.DoMain.BuyerType();
+                //不存在是的操作
+                bt.BuyerCode = order.BuyerCode;
+                bt.PlatformCode = PlatformType.Ebay.ToString();
+
+                bt.BuyCount++;
+                bt.insert();
+            }
+            else
+            {
+                bt.BuyCount++;
+                bt.update();
+            }
+            order.BuyerId = bt.Id.ToString();
         }
 
         public string GetSequence()

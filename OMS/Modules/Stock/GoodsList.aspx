@@ -9,16 +9,17 @@
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddCompany() {
-            $.dialog({ content: 'url:Company.aspx',
-               
+            $.dialog({ content: 'url:Company.aspx' });
+        }
+
+        function CheckDB(code) {
+            $.dialog({ content: 'url:CheckDB.aspx?code=' + code
+
             });
         }
-     
 
-         function CheckDB(code) {
-            $.dialog({ content: 'url:CheckDB.aspx?code='+code,
-             
-            });
+        function AddDB(code) {
+            $.dialog({ content: "" })
         }
     </script>
     <style type="text/css">
@@ -29,7 +30,6 @@
     </style>
 </head>
 <body>
-    <body>
     <form id="Form1" runat="server">
     <table width="100%" cellspacing="6" cellpadding="0" border="0" style="border-collapse: separate;
         border-spacing: 6px;">
@@ -121,9 +121,8 @@
                                             <tr>
                                                 <td align="center" id="dg1_PageBar" colspan="5">
                                                     <div style='float: right; font-family: Tahoma'>
-                                                        <webdiyer:aspnetpager ID="AspNetPager1" runat="server" FirstPageText="第一页" LastPageText="最末页"
-                                                            NextPageText="下一页" PagingButtonLayoutType="None" PrevPageText="上一页" 
-                                                            OnPageChanged="AspNetPager1_PageChanged">
+                                                        <webdiyer:aspnetpager id="AspNetPager1" runat="server" firstpagetext="第一页" lastpagetext="最末页"
+                                                            nextpagetext="下一页" pagingbuttonlayouttype="None" prevpagetext="上一页" onpagechanged="AspNetPager1_PageChanged">
                                                         </webdiyer:aspnetpager>
                                                     </div>
                                                     <div style='float: left; font-family: Tahoma'>

@@ -77,6 +77,11 @@ namespace OMS.Core.DoMain
         public String ItemAttr { get; set; }
 
         ///<summary>
+        /// 产品描述
+        ///</summary>
+        public String ItemDesc { get; set; }
+
+        ///<summary>
         /// 产品缺货
         ///</summary>
         public int Enabled { get; set; }

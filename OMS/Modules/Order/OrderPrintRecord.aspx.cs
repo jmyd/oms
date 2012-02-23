@@ -14,9 +14,22 @@ namespace OMS.Modules.Order
             if (!Page.IsPostBack)
             {
                 Session["CompanyCode"] = "OMSTest";
-                rpRecord.DataSource = OMS.Core.DoMain.OrderPrintRecordType.findAll();
-                rpRecord.DataBind();
+                this.DoPageLoad();
+
             }
+        }
+
+        private void DoPageLoad()
+        {
+            wojilu.DataPage<OMS.Core.DoMain.OrderPrintRecordType> dataPage = wojilu.db.findPage<OMS.Core.DoMain.OrderPrintRecordType>("Order By CreateOn Desc", AspNetPager1.CurrentPageIndex, AspNetPager1.PageSize);
+            rpRecord.DataSource = dataPage.Results;
+            AspNetPager1.RecordCount = dataPage.RecordCount;
+            rpRecord.DataBind();
+        }
+
+        protected void AspNetPager1_PageChanged(object sender, EventArgs e)
+        {
+            DoPageLoad();
         }
     }
 }

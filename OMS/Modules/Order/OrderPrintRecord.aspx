@@ -21,24 +21,16 @@
                         </td>
                     </tr>
                     <tr>
-                    </tr>
-                    <tr>
                         <td style="padding-top: 0px; padding-left: 6px; padding-right: 6px; padding-bottom: 8px;">
                             <asp:Repeater runat="server" ID="rpRecord">
                                 <ItemTemplate>
                                     <div style="width: 500px; float: left;">
                                         <table width="400" cellpadding="2" cellspacing="0" class="dataTable" id="Table1">
                                             <tr class="dataTableHead">
-                                                <td width="70" height="30" align="right">
-                                                    <strong>打印时间:</strong>
-                                                </td>
-                                                <td width="150">
-                                                    <%#Eval("CreateOn") %>
-                                                </td>
-                                                <td width="50" align="right">
+                                                <td width="80" align="right">
                                                     <strong>标题:</strong>
                                                 </td>
-                                                <td width="130">
+                                                <td>
                                                     <%#Eval("Title") %>
                                                 </td>
                                             </tr>
@@ -49,6 +41,8 @@
                                                 <td>
                                                     <%#Eval("OrderCondition")%>
                                                 </td>
+                                            </tr>
+                                            <tr>
                                                 <td align="right">
                                                     <strong>订单数:</strong>
                                                 </td>
@@ -57,14 +51,15 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td align="right">
                                                     <strong>操作</strong>
                                                 </td>
-                                                <td colspan="3">
+                                                <td>
+                                                    <input value="包裹单打印" type="button" onclick="window.open('/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>')" />
+                                                    <input value="包裹单打印" type="button" onclick="window.open('/Modules/Print/PrintReport/PrintReport.aspx?Report=ParcelA4&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>')" /><br />
                                                     <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
-                                                        包裹单打印</a> <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
-                                                            多物品打印</a> <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
-                                                                报关单打印</a>
+                                                        多物品打印</a> <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
+                                                            报关单打印</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -74,16 +69,10 @@
                                     <div style="width: 400; float: left;">
                                         <table width="400" cellpadding="2" cellspacing="0" class="dataTable" id="Table1">
                                             <tr class="dataTableHead">
-                                                <td width="80" height="30" align="right">
-                                                    <strong>打印时间:</strong>
-                                                </td>
-                                                <td width="115">
-                                                    <%#Eval("CreateOn") %>
-                                                </td>
                                                 <td width="80" align="right">
                                                     <strong>标题:</strong>
                                                 </td>
-                                                <td width="115">
+                                                <td>
                                                     <%#Eval("Title") %>
                                                 </td>
                                             </tr>
@@ -94,6 +83,8 @@
                                                 <td>
                                                     <%#Eval("OrderCondition")%>
                                                 </td>
+                                            </tr>
+                                            <tr>
                                                 <td align="right">
                                                     <strong>订单数:</strong>
                                                 </td>
@@ -105,9 +96,11 @@
                                                 <td align="right">
                                                     <strong>操作</strong>
                                                 </td>
-                                                <td colspan="3">
+                                                <td>
                                                     <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
-                                                        包裹单打印</a> 多物品打印 报关单打印
+                                                        包裹单打印</a> <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
+                                                            多物品打印</a> <a href='/Modules/Print/PrintReport/PrintReport.aspx?Report=Parcel&Data=/Modules/Print/Data/xmlParcel.aspx?id=<%#Eval("Id")%>'>
+                                                                报关单打印</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -119,7 +112,7 @@
                             <div style='float: right; font-family: Tahoma'>
                                 <webdiyer:AspNetPager ID="AspNetPager1" runat="server" CssClass="anpager" CurrentPageButtonClass="cpb"
                                     FirstPageText="第一页" LastPageText="最末页" NextPageText="下一页" PagingButtonLayoutType="None"
-                                    PrevPageText="上一页">
+                                    PrevPageText="上一页" OnPageChanged="AspNetPager1_PageChanged">
                                 </webdiyer:AspNetPager>
                             </div>
                             <div style='float: left; font-family: Tahoma'>
