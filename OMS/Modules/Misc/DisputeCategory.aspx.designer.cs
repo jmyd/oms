@@ -10,7 +10,7 @@
 namespace OMS.Modules.Misc {
     
     
-    public partial class DisputeList {
+    public partial class DisputeCategory {
         
         /// <summary>
         /// Head1 控件。
@@ -22,31 +22,22 @@ namespace OMS.Modules.Misc {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// form1 控件。
+        /// ltTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Literal ltTitle;
         
         /// <summary>
-        /// rpDispute 控件。
+        /// form2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpDispute;
-        
-        /// <summary>
-        /// AspNetPager1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wuqi.Webdiyer.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
         /// btnSubmit 控件。
@@ -58,12 +49,12 @@ namespace OMS.Modules.Misc {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// hId 控件。
+        /// txtCategoryName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCategoryName;
     }
 }

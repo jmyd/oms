@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ebayId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderResult" type="tns:ArrayOfOrderInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderInfo" nillable="true" type="tns:OrderInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectBaseOfOrderInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderExNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TxnId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PayStatus" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsPrint" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderStatus" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderAmount" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderCurrencyCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderSaleTax" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="PayCurrencyCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderPayTax" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransportMode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendPostCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendAddress" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendCounty" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendState" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AddressId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SendCountryCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContactMan" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PayMan" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PayMode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PayEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderForm" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserNameForm" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNote" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AddOrderTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="PayOrderTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendOrderTIme" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Enabled" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeletionStateCode" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SortCode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateOn" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateUserId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TrackCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifiedOn" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModifiedUserId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModifiedBy" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SumAmount" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="Goods" type="tns:ArrayOfOrderGoodsData" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ObjectBaseOfOrderInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderGoodsData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderGoodsData" nillable="true" type="tns:OrderGoodsData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderGoodsData">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectBaseOfOrderGoodsData">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OrderName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemNo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemPrice" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemImg" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemNum" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemAttr" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Enabled" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeletionStateCode" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SortCode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateOn" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateUserId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifiedOn" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModifiedUserId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModifiedBy" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyId" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ObjectBaseOfOrderGoodsData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HasOrderByTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ebayId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="hour" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasOrderByTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HasOrderByTimeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="HasOrderByTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:HasOrderByTime" />
+  </wsdl:message>
+  <wsdl:message name="HasOrderByTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:HasOrderByTimeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="GetOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">订单号</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderSoapIn" />
+      <wsdl:output message="tns:GetOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HasOrderByTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在几小时内是否有订单</wsdl:documentation>
+      <wsdl:input message="tns:HasOrderByTimeSoapIn" />
+      <wsdl:output message="tns:HasOrderByTimeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="http://tempuri.org/GetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasOrderByTime">
+      <soap:operation soapAction="http://tempuri.org/HasOrderByTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasOrderByTime">
+      <soap12:operation soapAction="http://tempuri.org/HasOrderByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://oms.eadu.com.cn/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://oms.eadu.com.cn/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

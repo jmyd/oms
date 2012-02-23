@@ -495,3 +495,16 @@ position:relative; }
 .anpager .cpb {background:#1F3A87 none repeat scroll 0 0;border:1px solid #CCCCCC;color:#FFFFFF;font-weight:bold;margin:5px 4px 0 0;padding:4px 5px 0;}
 .anpager a {background:#FFFFFF none repeat scroll 0 0;border:1px solid #CCCCCC;color:#1F3A87;margin:5px 4px 0 0;padding:4px 5px 0;text-decoration:none}
 .anpager a:hover{background:#1F3A87 none repeat scroll 0 0;border:1px solid #1F3A87;color:#FFFFFF;}
+
+.email_title_50 a{font-size:12px;text-decoration:underline; color:Red;}
+.email_title_50 a:hover{font-size:12px; text-decoration:none;}
+.email_title_40 a{font-size:12px;text-decoration:underline; color:#CC3300;}
+.email_title_40 a:hover{font-size:12px; text-decoration:none;}
+.email_title_30 a{font-size:12px;text-decoration:underline; color:#0033CC;}
+.email_title_30 a:hover{font-size:12px; text-decoration:none;}
+.email_title_20 a{font-size:12px;text-decoration:underline; color:#9900CC;}
+.email_title_20 a:hover{font-size:12px; text-decoration:none;}
+.email_title_10 a{font-size:12px;text-decoration:underline; color:#000000;}
+.email_title_10 a:hover{font-size:12px; text-decoration:none;}
+.email_title a{font-size:12px;text-decoration:underline; color:#333333;}
+.email_title a:hover{font-size:12px; text-decoration:none;}
