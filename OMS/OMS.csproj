@@ -1418,10 +1418,14 @@
     <Content Include="Modules\Misc\DisputeCategory.aspx" />
     <Content Include="Modules\Misc\DisputeCategoryList.aspx" />
     <Content Include="Modules\Misc\DisputeList.aspx" />
+    <Content Include="Modules\Misc\EmailEdit.aspx" />
     <Content Include="Modules\Misc\EmailList.aspx" />
+    <Content Include="Modules\Misc\EmailRepliedRank.aspx" />
+    <Content Include="Modules\Misc\EmailStatistic.aspx" />
     <Content Include="Modules\Misc\EmailTemplate.aspx" />
     <Content Include="Modules\Misc\PringTempAdd.aspx" />
     <Content Include="Modules\Misc\PrintTempList.aspx" />
+    <Content Include="Modules\Misc\RepliedEmailList.aspx" />
     <Content Include="Modules\Misc\Reply.aspx" />
     <Content Include="Modules\Order\AddOrderByAPI.aspx" />
     <Content Include="Modules\Order\AddOrderByImport.aspx" />
@@ -1463,6 +1467,29 @@
     <Content Include="Modules\User\UserList.aspx" />
     <Content Include="Scripts\Applicetion.js" />
     <Content Include="Scripts\CreateControl.js" />
+    <Content Include="Scripts\FusionCharts\FCF_Area2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Bar2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Candlestick.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Column2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Column3D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Doughnut2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Funnel.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Gantt.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Line.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSArea2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSBar2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSColumn2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSColumn2DLineDY.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSColumn3D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSColumn3DLineDY.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_MSLine.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Pie2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_Pie3D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_StackedArea2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_StackedBar2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_StackedColumn2D.swf" />
+    <Content Include="Scripts\FusionCharts\FCF_StackedColumn3D.swf" />
+    <Content Include="Scripts\FusionCharts\FusionCharts.js" />
     <Content Include="Scripts\GRUtility.js" />
     <Content Include="Scripts\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="Scripts\kindeditor\asp.net\demo.aspx" />
@@ -1949,12 +1976,33 @@
     <Compile Include="Modules\Misc\DisputeList.aspx.designer.cs">
       <DependentUpon>DisputeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Misc\EmailEdit.aspx.cs">
+      <DependentUpon>EmailEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\EmailEdit.aspx.designer.cs">
+      <DependentUpon>EmailEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Misc\EmailList.aspx.cs">
       <DependentUpon>EmailList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\Misc\EmailList.aspx.designer.cs">
       <DependentUpon>EmailList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\EmailRepliedRank.aspx.cs">
+      <DependentUpon>EmailRepliedRank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\EmailRepliedRank.aspx.designer.cs">
+      <DependentUpon>EmailRepliedRank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\EmailStatistic.aspx.cs">
+      <DependentUpon>EmailStatistic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\EmailStatistic.aspx.designer.cs">
+      <DependentUpon>EmailStatistic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Misc\EmailTemplate.aspx.cs">
       <DependentUpon>EmailTemplate.aspx</DependentUpon>
@@ -1976,6 +2024,13 @@
     </Compile>
     <Compile Include="Modules\Misc\PrintTempList.aspx.designer.cs">
       <DependentUpon>PrintTempList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Misc\RepliedEmailList.aspx.cs">
+      <DependentUpon>RepliedEmailList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Misc\RepliedEmailList.aspx.designer.cs">
+      <DependentUpon>RepliedEmailList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Misc\Reply.aspx.cs">
       <DependentUpon>Reply.aspx</DependentUpon>

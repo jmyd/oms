@@ -37,6 +37,11 @@ namespace OMS.Core.DoMain
         public int Id { get; set; }
 
         ///<summary>
+        /// 所属账号
+        ///</summary>
+        public String SaleAccount { get; set; }
+
+        ///<summary>
         /// 邮件Id
         ///</summary>
         public String MessageID { get; set; }
@@ -78,9 +83,9 @@ namespace OMS.Core.DoMain
         public String Replier { get; set; }
 
         ///<summary>
-        /// 是否上次到ebay
+        /// 是否上传到ebay
         ///</summary>
-        public Boolean IsToEbay { get; set; }
+        public bool IsToEbay { get; set; }
 
         ///<summary>
         /// 回复时间

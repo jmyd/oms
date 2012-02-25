@@ -10,7 +10,7 @@
 namespace OMS.Modules.Misc {
     
     
-    public partial class Reply {
+    public partial class EmailEdit {
         
         /// <summary>
         /// Head1 控件。
@@ -31,31 +31,40 @@ namespace OMS.Modules.Misc {
         protected global::System.Web.UI.WebControls.Literal ltTitle;
         
         /// <summary>
-        /// form1 控件。
+        /// form2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// hdStartTime 控件。
+        /// lblFrom 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdStartTime;
+        protected global::System.Web.UI.WebControls.Label lblFrom;
         
         /// <summary>
-        /// rpHistoryEmail 控件。
+        /// lblTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpHistoryEmail;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
+        
+        /// <summary>
+        /// tbxContent 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxContent;
         
         /// <summary>
         /// txtEmailTitle 控件。
@@ -139,24 +148,6 @@ namespace OMS.Modules.Misc {
         protected global::System.Web.UI.WebControls.Label lblItemCurrency;
         
         /// <summary>
-        /// rpOrderInfo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpOrderInfo;
-        
-        /// <summary>
-        /// btnPrefix 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrefix;
-        
-        /// <summary>
         /// btnSubmit 控件。
         /// </summary>
         /// <remarks>
@@ -164,23 +155,5 @@ namespace OMS.Modules.Misc {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// btnSendAndNext 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendAndNext;
-        
-        /// <summary>
-        /// btnNext 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
     }
 }

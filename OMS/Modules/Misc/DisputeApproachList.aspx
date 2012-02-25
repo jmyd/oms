@@ -2,15 +2,14 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <title>纠纷处理方式列表</title>
     <link href="/css/Default.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddDisputeApproach() {
-            $.dialog({ content: 'url:DisputeApproach.aspx',
-               
+            $.dialog({ content: 'url:DisputeApproach.aspx'
             });
         } 
     </script>

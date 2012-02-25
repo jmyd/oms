@@ -11,6 +11,7 @@ using wojilu.ORM;
 using System.Collections;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace OMS.Modules.Misc
 {
@@ -32,7 +33,7 @@ namespace OMS.Modules.Misc
             ce = EmailType.findById(int.Parse(strId));
             if (ce.MessageStatus == "Replied")
             {
-                Page.ClientScript.RegisterStartupScript(typeof(Page), "", "<script language='javascript' type='text/javascript'>alert('该Email已回复！');updateParent();</script>");
+                Page.ClientScript.RegisterStartupScript(typeof(Page), "", "<script language='javascript' type='text/javascript'>alert('该Email已回复！');EmailListReload();</script>");
                 return;
             }
 
@@ -41,15 +42,37 @@ namespace OMS.Modules.Misc
             {
                 listOrder[i].OrderGoods = OrderGoodsType.find("OrderNo='" + listOrder[i].Id + "'").list();
             }
-
             rpOrderInfo.DataSource = listOrder;
             rpOrderInfo.DataBind();
 
-            StringBuilder sb = new StringBuilder();
             DateTime limitTime = DateTime.Now.AddDays(-90);
-            List<EmailRepliedType> result = EmailRepliedType.findBySql("SELECT E.SenderID,E.[Subject],E.[Body],E.[CreateOn],RE.[Replier],RE.[Subject],RE.[Body],RE.CreateOn FROM [Email] AS E LEFT JOIN [EmailReplied] AS RE ON E.MessageID = RE.MessageID WHERE E.SenderID='" + ce.BuyerAccount + "' AND E.SaleAccount='" + ce.SaleAccount + "' AND DE.CreationDate>'" + limitTime + "' ORDER BY DE.CreationDate ASC");
+            
+            DataTable dtHistory = db.RunTable<EmailType>("SELECT E.BuyerAccount,E.[Subject],E.[Body],E.[CreateOn],RE.[Replier],RE.[Subject],RE.[Body],RE.CreateOn FROM [Email] AS E LEFT JOIN [EmailReplied] AS RE ON E.MessageID = RE.MessageID WHERE E.BuyerAccount='" + ce.BuyerAccount + "' AND E.SaleAccount='" + ce.SaleAccount + "' AND E.CreateOn>'" + limitTime + "' ORDER BY E.CreateOn ASC");
+            List<EmailRepliedType> result = new List<EmailRepliedType>();
+            foreach (DataRow dr in dtHistory.Rows)
+            {
+                EmailRepliedType re = new EmailRepliedType();
+                re.Replier = dr[0].ToString();
+                re.Subject=dr[1].ToString();
+                re.Body = dr[2].ToString();
+                re.CreateOn = DateTime.Parse(dr[3].ToString());
+                re.IsToEbay = false;
+                result.Add(re);
+                re = new EmailRepliedType();
+                if (!dr.IsNull(4))
+                {
+                    re.Replier = dr[4].ToString();
+                    re.Subject = dr[5].ToString();
+                    re.Body = dr[6].ToString();
+                    re.CreateOn = DateTime.Parse(dr[7].ToString());
+                    re.IsToEbay = true;
+                    result.Add(re);
+                }
+            }
+
             rpHistoryEmail.DataSource = result;
             rpHistoryEmail.DataBind();
+
             lblOurStore.Text = ce.SaleAccount;
             lblItemCurrency.Text = ce.ItemPriceCurrency;
             lblItemTitle.Text = ce.ItemTitle;
@@ -77,18 +100,21 @@ namespace OMS.Modules.Misc
             {
                 re.Body = "";
             }
-            re.ReceiveOn = DateTime.Now;            
+            re.CreateOn = DateTime.Now;
+            re.ReceiveOn = ce.CreateOn;
+            re.SaleAccount = ce.SaleAccount;
+            re.ItemID = ce.ItemID;
             re.Subject = strEmailTitle;            
             re.IsToEbay = false;                        
             re.MessageID = ce.MessageID;
             re.Replier = "";//当前用户名
             re.BuyerEmail = ce.BuyerEmail;
             re.BuyerAccount = ce.BuyerAccount;
-            re.ToEbayOn = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            re.ToEbayOn = new DateTime(1999, 1, 1, 0, 0, 0, 0);
 
             string strStartTime = Request.Form[hdStartTime.ID].Trim();
             DateTime startTime = DateTime.Parse(strStartTime);
-            re.ReplyCostSecond = Convert.ToInt32((re.CreateOn - startTime).TotalSeconds);
+            re.ReplyCostSecond = (re.CreateOn - startTime).TotalSeconds;
             re.insert();
             ce.MessageStatus = "Replied";
             ce.update();
@@ -97,7 +123,7 @@ namespace OMS.Modules.Misc
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             SaveCurrentReply();
-            Page.ClientScript.RegisterStartupScript(typeof(Page), "", "<script language='javascript' type='text/javascript'>updateParent();</script>");
+            Page.ClientScript.RegisterStartupScript(typeof(Page), "", "<script language='javascript' type='text/javascript'>EmailListReload();</script>");
         }
 
         protected void btnPrefix_Click(object sender, EventArgs e)
@@ -137,11 +163,12 @@ namespace OMS.Modules.Misc
             }
             if (!string.IsNullOrEmpty(currentEbayAccount))
             {
+                currentEbayAccount = "'" + currentEbayAccount + "'";
                 ceOther = GetOtherEmailByParameters(currentEbayAccount, ce.CreateOn, sortString);
             }
             else
             {
-                ceOther = GetOtherEmailByParameters(account.TrimEnd(), ce.CreateOn, sortString);// 
+                ceOther = GetOtherEmailByParameters(account.TrimEnd(','), ce.CreateOn, sortString);
             }
             if (ceOther != null)
             {
@@ -156,7 +183,7 @@ namespace OMS.Modules.Misc
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(typeof(Page), "", "<script language='javascript' type='text/javascript'>alert('" + msg + "');updateParent();</script>");
+                Page.ClientScript.RegisterStartupScript(typeof(Page), "", "<script language='javascript' type='text/javascript'>alert('" + msg + "');</script>");
             }
         }
 
@@ -168,7 +195,7 @@ namespace OMS.Modules.Misc
             {
                 createTime = limitTime;
             }
-            string sqlParam = " AND SaleAccount IN('" + ebayAccount + "')";
+            string sqlParam = " AND SaleAccount IN(" + ebayAccount + ")";
             if (sortStr == "PRE")
             {
                 sqlParam += " AND [CreateOn] > '" + limitTime + "' ORDER BY [CreateOn] ASC";
@@ -177,7 +204,7 @@ namespace OMS.Modules.Misc
             {
                 sqlParam += " AND [CreateOn] < '" + limitTime + "' ORDER BY [CreateOn] DESC";
             }
-            string sql = "SELECT TOP 1 FROM [Email] WHERE [MessageStatus] ='Unanswered'" + sqlParam;
+            string sql = "SELECT TOP 1 * FROM [Email] WHERE [MessageStatus] ='Unanswered'" + sqlParam;
             List<EmailType> result = EmailType.findBySql(sql);
             foreach (EmailType e in result)
             {

@@ -24,7 +24,7 @@ namespace OMS.Modules.Misc
             
             if (!IsPostBack)
             {
-                ddlDisputeApproach.Items.Add(new ListItem("","0"));
+                ddlDisputeApproach.Items.Add(new ListItem("",""));
                 List<DisputeApproachType> daList = DisputeApproachType.findAll();
                 foreach (DisputeApproachType da in daList)
                 {
@@ -37,7 +37,7 @@ namespace OMS.Modules.Misc
                     ddlDisputeCategory.Items.Add(new ListItem(dc.CateName, dc.CateName));
                 }
 
-                ddlCurrencyType.Items.Add(new ListItem("", "0"));
+                ddlCurrencyType.Items.Add(new ListItem("", ""));
                 List<CurrencyType> ctList = CurrencyType.findAll();
                 foreach (CurrencyType ct in ctList)
                 {
@@ -118,7 +118,7 @@ namespace OMS.Modules.Misc
             if (!string.IsNullOrEmpty(txtApproachOn.Value) && DateTime.TryParse(txtApproachOn.Value, out approachDate))
             {
                 di.ResolutionTime = approachDate;
-            }            
+            }
             di.DisputeStatus = Request.Form["state"].Trim();
             di.DisputeCategory = ddlDisputeCategory.SelectedItem.Value;
             di.DisputeSolutionType = ddlDisputeApproach.SelectedItem.Value;

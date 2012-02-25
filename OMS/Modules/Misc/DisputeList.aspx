@@ -10,14 +10,12 @@
     <script src="/Scripts/lhgdialog/lhgdialog.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function AddDispute() {
-            $.dialog({ title:'纠纷', content: 'url:Dispute.aspx',
-               
+            $.dialog({ title:'纠纷', content: 'url:Dispute.aspx'
             });
         } 
 
         function EditDispute(id) {
-            $.dialog({ title:'纠纷', content: 'url:Dispute.aspx?id=' + id,
-               
+            $.dialog({ title:'纠纷', content: 'url:Dispute.aspx?id=' + id
             });
         } 
         function DelDispute(id) {
@@ -27,8 +25,7 @@
                 this.reload();
             }, function(){
                 $.dialog.tips('您已经取消操作！');
-            });
-            
+            });            
         } 
     </script>
 </head>
